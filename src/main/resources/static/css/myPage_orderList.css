@@ -1,0 +1,33 @@
+.orderList_img {
+    width: 100px;
+    height: 80px;
+    border-radius: 1.2rem;
+    border:1px solid lightgray;
+    margin-right: 15px;
+    margin-top: 5px;
+}
+
+.orderList_1 {
+    display: block;
+    border:1px solid lightgray;
+    padding: 1.6rem;
+    border-radius: 1rem;
+    width: 100%;
+}
+
+.orderList_1_1 {
+    display: flex;
+    justify-content: space-between;
+}
+
+.orderList_1_2 {
+    display: flex;
+}
+
+.orderList_1_2_1 {
+    display: block;
+}
+
+.orderList_081751 {
+    justify-content: space-between;
+}

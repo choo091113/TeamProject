@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width" , initial-scale="1">
+<title>추몽</title>
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<link rel="stylesheet" href="/static/css/codingBooster.css">
+
+	<script>
+
+        window.addEventListener('load', function() {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function(el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+
+
+    </script>
+
+</head>
+<body>
+	<style type = "text/css">
+	blockquote {
+	background : #f9f9f9;
+	border-left: 10px solid #cccccc;
+	margin: 1.5em 10px;
+	padding: 0.5em 10px;
+	quotes: "\201C""\201D""\2018""\2019"; 
+	}
+blockquote:before {
+color: #cccccc;
+content: open-quote;
+font-size: 3em;
+line-height: 0.1em;
+margin-left: 0.25em;
+vertical-align: -0.4em;
+
+}
+
+blockquote:after {
+color: #cccccc;
+content: close-quote;
+font-size: 3em;
+line-height: 0.1em;
+margin-left: 0.25em;
+vertical-align: -0.4em;
+
+}
+</style>
+	<div data-include-path="header.html"></div>
+
+<div class = "container">
+<div class = "row">
+<div class = "col-xs-12">
+<div class = "panel panel-primary">
+<div class = "panel-heading">
+<h3 class = "panel-title">
+<span class = "glyphicon glyphicon-tags"></span>
+&nbsp;&nbsp;그림그림 강사
+</h3>
+</div>
+<div  class = "panel-body">
+<div class = "media">
+<div  class = "media-left">
+<a href = "#">
+<img class = "media-object" src = "/static/image/bin00.png" alt="개발자 이미지">
+</a>
+</div>
+<div class = "media-body">
+<h4 class = "media-heading">그림그림</h4><br>
+추몽의 일러스트 대표 강사입니다.
+</div>
+</div>
+</div>
+<table class = "table">
+<thead>
+<tr>
+<th>강사명</th>
+<th>강의 번호</th>
+<th>강의 제목</th>
+<th>강의 날짜</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>그림그림</td>
+<td>1</td>
+<td><a href = "lecture.html?lectureName=C">오리엔테이션 그림이란 무엇인가</a></td>
+<td>2022-09-11</td>
+</tr>
+<tr>
+<td>그림그림</td>
+<td>2</td>
+<td><a href = "lecture.html?lectureName=Java">선 긋기의 기초</a></td>
+<td>2022-09-12</td>
+</tr>
+<tr>
+<td>그림그림</td>
+<td>3</td>
+<td><a href = "lecture.html?lectureName=Android">최종 프로젝트 만들기</a></td>
+<td>2022-09-13</td>
+</tr>
+</tbody>
+</table>
+<div class = "panel-footer">
+<blockquote>&nbsp;&nbsp;강의 환불은 불가능합니다.</blockquote>
+</div>
+
+</div>
+</div>
+</div>
+</div>
+	<div data-include-path="footer.html"></div>
+</body>
+</html>

@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	<title>추몽</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/css/order.css">
+	<link rel="stylesheet" href="/static/css/codingBooster.css">
+
+	<script>
+
+        window.addEventListener('load', function() {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function(el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<div data-include-path="header.html"></div>
+
+<!-- 결제하기 -->
+<div class="order_theme">
+	<div class="grid_small">
+		<div class="board_header">
+		<div class="board_header_h">
+				<h3>1. 결제하기</h3>
+		</div>
+			<div class="board_header_h">
+				<h3>2. 결제 확인</h3>
+			</div>
+		</div>
+			<div class="board_body">
+				<div class="board_block">
+					<h3>주문 상품</h3>
+					<div class="purchase_product">
+						<div class="purchase_product_thumb"><img src="/static/image/bin00.png" alt=""></div>
+						<div class="purchase_product_caption">
+							<dl>
+								<dt>기초 도형으로 쉽게 접근하는 드로잉</dt>
+								<dd>주문한 상품의 설명 : 러버덕</dd>
+							</dl>
+							<em>
+								250,000,000원
+							</em>
+						</div>
+					</div>
+				</div>
+				<div class="board_block">
+					<h3>회원 정보</h3>
+						<div class="board_block_form">
+							<span>이름</span>
+							<p>최혜빈</p>
+						</div>
+					<div class="board_block_form">
+						<span>이메일</span>
+						<p>h_bee99@naver.com</p>
+					</div>
+					<div class="board_block_form">
+						<span>전화번호</span>
+						<p>01012345678</p>
+					</div>
+				</div>
+				<div class="board_block">
+					<div>
+						<strong>총 결제 금액</strong>
+						<strong>250,000,000원</strong>
+					</div>
+				</div>
+				<div class="board_block">
+					<h3>결제방법</h3>
+					<div>
+						<input type="radio" id="creditCard" name="payment" value="creditCard">
+						<label for="creditCard">신용카드결제</label>
+						<input type="radio" id="atm" name="payment" value="atm">
+						<label for="creditCard">무통장입금(가상계좌)</label>
+					</div>
+				</div>
+				<session>
+					<button class="btn_purchase_submit" onclick="location.href='order2.html'">결제하기</button>
+				</session>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div data-include-path="footer.html"></div>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width" , initial-scale="1">
+	<title>추몽</title>
+	<link rel="stylesheet" href="/static/css/bootstrap.css">
+	<link rel="stylesheet" href="/static/css/itemDtl.css">
+	<link rel="stylesheet" href="/static/css/codingBooster.css">
+
+	<script>
+
+        window.addEventListener('load', function() {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function(el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<div data-include-path="header.html"></div>
+
+<!-- 상품 상세 페이지 -->
+<section class="product_info">
+	<h2 class="hidden">product_info</h2>
+	<div class="container">
+		<a href="Main.html" class="">디자인</a>
+		<span class="">></span>
+		<a href="instructor.html" class="">이모티콘</a>
+		<div class="row">
+			<div class="product_pictures col-md-7">
+				<img src="/static/image/cote_big_1.jpeg" alt="cat" class="big_img">
+				<ul class="thumb_img">
+					<li class="active"><img src="/static/image/cat00.jpeg" data-target="cote_big_1" alt="" ></li>
+					<li><img src="/static/image/cat03.jpeg" data-target="cote_big_2" alt="" ></li>
+					<li><img src="/static/image/cat02.jpeg" data-target="cote_big_3" alt="" ></li>
+					<li><img src="/static/image/dog00.jpeg" data-target="cote_big_4" alt="" ></li>
+				</ul>
+				<div class="left_2">
+					<ul class="nav nav-tabs">
+						<li class="nav-item">
+							<a class="nav-link active" aria-current="page" href="#">서비스 설명</a>
+						</li>
+						<li class="nav-item">
+							<a class="nav-link" href="#">서비스 평가</a>
+						</li>
+					</ul>
+				</div>
+			</div>
+
+			<div class="droduct_specs col-md-5">
+				<h3>카카오 이모티콘 작가의 고퀄 트렌디 이모티콘</h3>
+				<form action="">
+					<hr/>
+					<div class="option order_summary row justify-content-between">
+						<span class="price">40,000원(VAT 포함가)</span>
+						<p>멈춰있는 이모티콘(멈티) 1개</br>
+							*캐릭터 보유 필수</br>
+							(종이에 그린 낙서라도 가능)</br>
+							</br>
+						</p>
+						<p>상업적 이용 가능</br>
+							고해상도 파일 제공</br>
+							원본파일 제공</br>
+							수정 횟수</br>
+						</p>
+						<hr/>
+					</div>
+				</form>
+				<session class="order_now">
+					<button onclick="location.href='order.html'">구매하기</button>
+				</session>
+			</div>
+		</div>
+	</div>
+</section>
+
+
+<div data-include-path="footer.html"></div>
+</body>
+</html>

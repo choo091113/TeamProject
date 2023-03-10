@@ -1,0 +1,172 @@
+/* itemDtl */
+itemDtl {
+    padding: 100px 0 135px;
+    background: #fff;
+}
+.product_pictures {
+    padding:5px;
+    text-align: center;
+}
+.product_pictures .thumb_img {
+    margin-top: 20px;
+    display: flex;
+}
+.product_pictures .thumb_img li{
+    background: #fff;
+    width:148px;
+    height:80px;
+    align-items: center;
+    justify-content: center;
+    list-style-type: none;
+}
+.droduct_specs {
+ background: #fff;
+}
+
+.dtlbtn {
+    border-top-style: solid;
+}
+
+form hr {
+    border: none;
+    border-top:1px solid #edeff1;
+    margin:30px 0;
+}
+
+.option {
+    padding: 0 15px;
+}
+.option h4 {
+    display:inline-block;
+    font-weight: 600;
+    font-size:18px;
+    color: #34404b;
+    margin-right: 20px;
+}
+.option .divider {
+    color: #edeff1;
+}
+.option .size input {
+    display: none;
+}
+.option .size input:checked + label{
+    font-size: 18px;
+    font-weight: 600;
+    color: #ff5912;
+}
+.option .size label {
+    font-size: 14px;
+    transition:0.3s;
+    cursor:pointer;
+}
+.option .quantity input {
+    border: none;
+    width: 30px;
+    color: #ff5912;
+    font-weight: 600;
+    text-align: center;
+    font-size: 18px;
+}
+.order_now {
+    display: flex;
+    align-items: center;
+}
+
+.order_now ul{
+    margin-right: 5px;
+    width: 50px;
+}
+
+.order_now button {
+    padding:0 25px;
+    height: 50px;
+    width: 500px;
+    color: #fff;
+    font-size: 18px;
+    background: #80C33C;
+    border-radius: 25px;
+    border: none;
+}
+
+.order_summary {
+    align-items: center;
+}
+
+.price {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+/*탭*/
+#nav {
+  margin: 24px auto;
+  border-top: 1px solid #999;
+  border-right: 1px solid #999;
+  border-left: 1px solid #999;
+  width: 95%;
+}
+
+ul#nav {
+  padding: 0;
+}
+
+#nav li {
+  list-style: none;
+}
+
+#nav li a {
+  display: block;
+  padding: 10px 15px;
+  background: #ccc;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #999;
+  text-decoration: none;
+  color: #000;
+}
+
+#nav li a:hover, #nav li a.active {
+  background: #B3B3B3;
+  color: #F2F2F2;
+}
+
+#nav section {
+  display: none;
+  /* I NEED TO FIX THIS */
+  float: left;
+  background: #B3B3B3;
+  overflow: hidden;
+  padding: 1% 3% 0 3%;
+}
+
+.no-js #nav section {
+  display: block;
+  /* I NEED TO FIX THIS */
+}
+
+#nav li ul li a {
+  padding: 10px 25px;
+  border-bottom: 1px dotted #ccc;
+}
+
+@media only screen and (min-width: 30em) {
+  #nav {
+    width: 80%;
+    position: relative;
+    border: none;
+  }
+
+  #nav li {
+    display: inline;
+  }
+
+  #nav li a {
+    display: inline-block;
+  }
+
+  #nav section {
+    padding: 1%;
+    position: absolute;
+    top: 42px;
+    left: 0;
+  }
+}

@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1">
+    <title>추몽</title>
+    <link rel="stylesheet" href="/static/css/myPage.css">
+
+    <!-- 'header.html' 과 'footer.html' 불러오는 script-->
+    <script>
+
+        window.addEventListener('load', function() {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function(el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+
+
+    </script>
+</head>
+
+<body>
+<div data-include-path="header.html"></div>
+
+<main class="myPage_theme">
+    <div class="myPage_all">
+        <div class="myPage_left">
+            <div class="myPage_left_profile">
+                <div>
+                    <img src="/static/image/icecream00.jpeg" alt="" class="myPage_left_Image">
+                </div>
+                <div class="myPage_left_board1">
+                    <h3>초코</h3>
+                    <a href="#">
+                        <img src="/static/image/cogwheel.png" alt="" class="myPage_left_cogwheel">
+                    </a>
+                </div>
+                <button class="expert_change_btn" onclick="location.href='#'">전문가 전환</button>
+            </div>
+            <hr>
+            <button class="myPage_menuButton" onclick="location.href='myPage_orderList.html'">구매 관리</button>
+            <br>
+            <button class="myPage_menuButton" onclick="location.href='myPage_charges.html'">거래 내역</button>
+            <br>
+            <button class="myPage_menuButton" onclick="location.href='myPage_cash.html'">마이 캐시</button>
+            <br>
+            <button class="myPage_menuButton" onclick="location.href='myPage_like.html'">찜</button>
+        </div>
+
+        <div class="myPage_right">
+            <div><h3>거래 내역</h3></div>
+            <div class="tab-area">
+                <input type="radio" name="tabs" id="tab1" checked>
+                <label for="tab1">결제내역</label>
+                <input type="radio" name="tabs" id="tab2">
+                <label for="tab2">환불내역</label>
+
+                <div id="content1" class="tab-content red">
+                    결제 내역이 없습니다.
+                </div>
+                <div id="content2" class="tab-content blue">
+                    환불 내역이 없습니다.
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<div data-include-path="footer.html"></div>
+</body>
+</html>

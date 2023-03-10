@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1">
+    <title>추몽</title>
+    <link rel="stylesheet" href="/static/css/myPage.css">
+    <link rel="stylesheet" href="/static/css/myPage_orderList.css">
+
+    <!-- 'header.html' 과 'footer.html' 불러오는 script-->
+    <script>
+
+        window.addEventListener('load', function() {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function(el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+
+
+    </script>
+</head>
+
+<body>
+<div data-include-path="header.html"></div>
+
+<main class="myPage_theme">
+    <div class="myPage_all">
+        <div class="myPage_left">
+            <div class="myPage_left_profile">
+                <div>
+                    <img src="/static/image/icecream00.jpeg" alt="" class="myPage_left_Image">
+                </div>
+                <div class="myPage_left_board1">
+                    <h3>초코</h3>
+                    <a href="#">
+                        <img src="/static/image/cogwheel.png" alt="" class="myPage_left_cogwheel">
+                    </a>
+                </div>
+                <button class="expert_change_btn" onclick="location.href='#'">전문가 전환</button>
+
+                <hr>
+                <button class="myPage_menuButton" onclick="location.href='myPage_orderList.html'">구매 관리</button>
+                <br>
+                <button class="myPage_menuButton" onclick="location.href='myPage_charges.html'">거래 내역</button>
+                <br>
+                <button class="myPage_menuButton" onclick="location.href='myPage_cash.html'">마이 캐시</button>
+                <br>
+                <button class="myPage_menuButton" onclick="location.href='myPage_like.html'">찜</button>
+            </div>
+        </div>
+
+        <div class="myPage_right">
+            <div><h3>구매 관리</h3></div>
+            <div class="myPage_right_orderlist1">
+                <div>
+                    <input type="search" style="border-radius: 6px">
+                    <button>조회</button>
+                </div>
+                <div>
+                    <input type="date">
+                    ~
+                    <input type="date">
+                </div>
+            </div>
+            <div class="tab-area">
+                <input type="radio" name="tabs" id="tab1" checked>
+                <label for="tab1">진행중</label>
+                <input type="radio" name="tabs" id="tab2">
+                <label for="tab2">완료</label>
+                <input type="radio" name="tabs" id="tab3">
+                <label for="tab3">취소/에러</label>
+
+                <div id="content1" class="tab-content red">
+                    <div class="orderList_1">
+                        <div class="orderList_1_1">
+                            <span>요청사항 미작성</span>
+                            <span>주문일시 23.03.08 17:25</span>
+                        </div>
+                        <div class="orderList_1_2">
+                          <img src="/static/image/sad.jpeg" alt="" class="orderList_img">
+                          <div class="orderList_1_2_1">
+                              <dl>
+                                  <dd>쇼핑몰 로고, 브랜딩, 상세페이지 제작</dd>
+                                  <dd>35,000원</dd>
+                                  <dd>행복한전문가</dd>
+                                  <button>문의하기</button>
+                              </dl>
+                          </div>
+                        </div>
+                        <div>
+                        전문가가 작업을 시작할 수 있도록 요청사항을 작성해 주세요.
+                        <button>요청사항 작성</button>
+                        </div>
+                    </div>
+                </div>
+                <div id="content2" class="tab-content blue">
+                    완료된 내역이 없습니다.
+                </div>
+                <div id="content3" class="tab-content yellow">
+                    취소된 내역이 없습니다.
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<div data-include-path="footer.html"></div>
+</body>
+</html>

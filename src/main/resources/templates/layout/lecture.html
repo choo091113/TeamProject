@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width" , initial-scale="1">
+<title>추몽</title>
+<link rel="stylesheet" href="/static/css/bootstrap.css">
+<link rel="stylesheet" href="/static/css/codingBooster.css">
+
+	<script>
+
+        window.addEventListener('load', function() {
+            var allElements = document.getElementsByTagName('*');
+            Array.prototype.forEach.call(allElements, function(el) {
+                var includePath = el.dataset.includePath;
+                if (includePath) {
+                    var xhttp = new XMLHttpRequest();
+                    xhttp.onreadystatechange = function () {
+                        if (this.readyState == 4 && this.status == 200) {
+                            el.outerHTML = this.responseText;
+                        }
+                    };
+                    xhttp.open('GET', includePath, true);
+                    xhttp.send();
+                }
+            });
+        });
+
+
+    </script>
+</head>
+<body>
+<div data-include-path="header.html"></div>
+
+	<h1><b>&nbsp;&nbsp;그림그림 강사</b></h1>
+<div class = "container">
+<div class = "row">
+<ul class = "list-group">
+<a href = "#" class = "list-group-item active">1강 오리엔테이션 그림이란 무엇인가</a>
+<a href = "#" class = "list-group-item">2강 선 긋기의 기초</a>
+<a href = "#" class = "list-group-item">3강 최종 프로젝트 만들기</a>
+<a href = "#" class = "list-group-item">4강 마무리</a>
+</ul>
+</div>
+<div class = "row">
+<div class = "embed-responsive embed-responsive-16by9">
+<iframe class = embed-responsive-item src="https://www.youtube.com/embed/CuGbeJNLXa4"></iframe>
+</div>
+</div>
+</div>
+
+<div class = "container">
+<hr>
+<form class = "form-horizontal">
+<div class = "form-group">
+<label>댓글: </label>
+<textarea class = "form-control" rows = "5" id="commentContent" name = "commectContent"></textarea>
+<br>
+<button type = "submit" class = "btn pull-right">등록</button>
+</div>
+</form>
+<hr>
+</div>
+
+<div data-include-path="footer.html"></div>
+</body>
+</html>

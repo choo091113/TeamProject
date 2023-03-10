@@ -1,0 +1,143 @@
+order {
+
+}
+
+.order_theme {
+    background: #fff;
+    padding: 5% 0;
+}
+
+.grid_small {
+    margin-right: auto;
+    margin-left: auto;
+    max-width: 72rem;
+    padding-right: 5%;
+    padding-left: 5%;
+}
+
+.board_block~.board_block {
+    margin-top: 1.6rem;
+}
+
+.board_header {
+    display: flex;
+    justify-content: center;
+}
+.board_header h3{
+    font-size: 1.4rem;
+    font-weight: 700;
+}
+
+.board_header h3 {
+    font-weight: bold;
+}
+
+.board_header_h {
+    padding-right: 0.9rem;
+    padding-left: 0.9rem;
+}
+
+.board_block {
+    padding: 2.4rem;
+    background: #fff;
+    font-size: 1.4rem;
+    border:1px solid lightgray;
+}
+
+.board_block h3{
+    font-weight: bold;
+}
+
+.board_block {
+    border-radius: 1rem;
+    box-shadow: 10px 5px 5px lightgray;
+}
+.board_block span{
+    font-weight: bold;
+}
+
+.purchase_product {
+    display: flex;
+}
+
+.purchase_product_thumb {
+    margin-right: 1.6rem;
+    border-radius: 1rem;
+    
+}
+
+img {
+  width: 200px;
+  height: 150px;
+  object-fit: cover;
+}
+
+.purchase_product_caption {
+    flex: 1 1;
+    flex-direction: row;
+}
+
+.purchase_product_caption {
+    display: flex;
+    justify-content: space-between
+}
+
+.btn_purchase_submit {
+    padding: 1.6rem;
+    align-items: center;
+    width: 100%;
+    background: #80C33C;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-top: 1.6rem;
+    border-radius: 1rem;
+    border:0px;
+    box-shadow: 10px 5px 5px lightgrey;
+}
+
+.board_block_form {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin-top: 0.8rem;
+    margin-bottom: 0.8rem;
+}
+
+.board_block_form span {
+    min-width: 6.6rem;
+    font-size: 1.4rem;
+}
+
+.board_block_form p {
+    display: flex;
+    flex: 1 1;
+    flex-wrap: wrap;
+    align-items: center;
+}
+
+.board_block_item {
+    display: flex;
+    justify-content: space-between
+}
+
+.board_block_item p {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.board_block_item2 {
+    display: flex;
+    justify-content: space-between
+}
+
+.board_block_item2 span {
+    font-size: 1.6rem;
+}
+.board_block_item2 p {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-weight: bold;
+    font-size: 1.6rem;
+}

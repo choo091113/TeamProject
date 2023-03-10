@@ -1,0 +1,138 @@
+/* 전체 영역을 통틀어서 스타일 정의 */
+@import url(http://fonts.googleapis.com/earlyaccess/nanumgothic.css);
+* {
+	font-family: 'Nanum Gothic';
+	
+}
+a{ 
+	color: #000000;
+	text-decoration: none;
+		}
+		a:hover {
+		color: #bbbbbb;
+		text-decoration: none;
+		cursor: pointer;
+		}
+	/*내비게이션 영역 */
+	.navbar-default { /* 배경 색상 */
+	background-color: #000000;
+	border-color: #000000;
+	}
+	.navbar-default .navbar-brand { /* 내비게이션 제목 색상 */
+	color: #ffffff;
+	}
+	.navbar-default .navbar-brand:hover,
+	.navbar-default .navbar-brand:focus { /* 내비게이션 제목 마우스 올림 */
+	background-color: transparent;
+	color: #bbbbbb;
+	}
+	.navbar-default .navbar-nav > .active > a,
+	.navbar-default .navbar-nav > .active > a:hover,
+	.navbar-default .navbar-nav > .active > a:focus { /* 현재 선택된 내비게이션 */
+	color : white;
+	background-color : #000000;
+	}
+	.navbar-default .navbar-nav > li > a:hover,
+	.navbar-default .navbar-nav > li > a:focus { /* 내비게이션 글자에 마우스를 올렸을 때 */
+	color : #bbbbbb;
+	}
+	.navbar-default .navbar-nav > .open > a,
+	.navbar-default .navbar-nav > .open > a:hover,
+	.navbar-default .navbar-nav > .open > a:focus { /* 드랍다운이 열렸을 때 마우스 색상 이벤트 */
+	color : #000000;
+	background-color : #ffffff;
+	text-decoration: none;
+	}
+	.navbar-default .navbar-nav > li > a { /* 내비게이션 기본 색상*/
+	color : white;
+	}
+	@media (max-width: 767px) {/*해상도가 작을 때 드랍다운에 마우스 올렸을 때 */
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a {
+	color : #ffffff;
+	}
+
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:hover,
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a:focus {
+	color : #bbbbbb;
+	}
+	}
+	
+	.body {
+	width: 100vw;
+	height: 100vh;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	background:url("background.jpg");
+	overflow: hidden;
+	}
+	
+	.card {
+	float: left;
+	margin-left:70px;
+	display: grid;
+	grid-template-columns: 300px;
+	grid-template-rows: 210px 150px 80px;
+	grid-template-areas: "image" "text" "stats";
+	
+	font-family: roboto;
+	border-radius: 18px;
+	background: white;
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.9);
+	text-align: center;
+	
+	transition: 0.5s ease;
+	cursor: pointer;
+	
+	}
+	
+	/* 카드 이미지 모음 */
+	.card-imageyun {
+	grid-area: image;
+    background: url("https://pds.joongang.co.kr/news/component/htmlphoto_mmdata/202202/03/0ef83cfb-e4dd-46c9-8819-acf1a4890cb0.jpg");
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	background-size: cover;
+	}
+	
+	.card-imagebin {
+	grid-area: image;
+    background: url("https://image.idus.com/image/files/56d98c69a2e6439bacf8403226640fd0.jpg");
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	background-size: cover;
+	}
+	
+	.card-imagehan {
+	grid-area: image;
+    background: url("https://ojsfile.ohmynews.com/STD_IMG_FILE/2021/1208/IE002908095_STD.jpg");
+	border-top-left-radius: 15px;
+	border-top-right-radius: 15px;
+	background-size: cover;
+	}
+	.card-text {
+	grid-area: text;
+	margin: 25px;
+	}
+	.card-text .date {
+	color: rgb(255,7,110);
+	font-size: 13px;
+	}
+	.card-text p {
+	color: grey;
+	font-size: 15px;
+	font-weight: 300;
+	}
+	.card-text h2 {
+	margin-top: 0px;
+	font-size: 28px;
+	}
+	
+	.card-stats {
+	grid-area: stats;
+	}
+	.card:hover {
+	transform: scale(1.1);
+	box-shadow: 5px 5px 15px rgba(0,0,0,0.6);
+	}
+
