@@ -52,19 +52,6 @@ img {
     margin-right: 10px;
 }
 
-.expert_change_btn {
-    padding: 5%;
-    align-items: center;
-    width: 100%;
-    background: #1C5B0B;
-    font-weight: 700;
-    font-size: 1.6rem;
-    margin-top: 1.6rem;
-    border-radius: 1rem;
-    border:0px;
-    color: #fff;
-}
-
 .myPage_menuButton {
     padding: 2%;
     margin-bottom: 3%;
@@ -74,6 +61,18 @@ img {
     border-radius: 1rem;
     font-weight: 700;
     border:0px;
+}
+
+.myPage_menuButtonClick {
+    padding: 2%;
+    margin-bottom: 3%;
+    align-items: center;
+    width: 100%;
+    background: #67A86A;
+    border-radius: 1rem;
+    font-weight: 800;
+    border:0px;
+    color: #fff;
 }
 
 /* 1. tab 영역 css 설정 */
@@ -105,8 +104,12 @@ img {
 체크된 input 태그 다음에 등장하는 label의 css 값 */
 .tab-area input:checked + label {
   /* 해당 메뉴가 선택된 상태인지 아닌지를 사용자에게 알려줄 수 있음 */
-  font-weight: bold;
-  color: orange;
+    font-weight: bold;
+    color: orange;
+}
+
+.tab-area label {
+  font-size: 16px;
 }
 
 
@@ -121,8 +124,6 @@ img {
   border-radius: 1rem;
   margin-top: 10px;
   padding: 1.6rem;
-  justify-content: center;
-  align-items: center;
 }
 
 
@@ -141,4 +142,19 @@ img {
     display: flex;
     justify-content: space-between;
     margin-top: 20px;
+}
+
+.mypage_090958 {
+    padding: 0.7rem;
+    border-radius: 1rem;
+    background: #AEDDA1;
+    border: 0;
+    font-weight: bold;
+    margin-left: 3px;
+}
+
+.mypage_091021 {
+    font-weight: bold;
+    font-size: 24px;
+    margin-bottom: 15px;
 }

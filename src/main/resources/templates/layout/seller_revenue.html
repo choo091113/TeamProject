@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1">
     <title>추몽</title>
     <link rel="stylesheet" href="/static/css/myPage.css">
-    <link rel="stylesheet" href="/static/css/myPage_cash.css">
+    <link rel="stylesheet" href="/static/css/seller_revenue.css">
+    <link rel="stylesheet" href="/static/css/seller.css">
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="/static/js/bootstrap.js"></script>
+
 
     <!-- 'header.html' 과 'footer.html' 불러오는 script-->
     <script>
@@ -27,6 +29,10 @@
                 }
             });
         });
+
+
+
+
     </script>
 </head>
 
@@ -38,38 +44,37 @@
         <div class="myPage_left">
             <div class="myPage_left_profile">
                 <div>
-                    <img src="/static/image/icecream00.jpeg" alt="" class="myPage_left_Image">
+                    <img src="/static/image/duck00.jpeg" alt="" class="myPage_left_Image">
                 </div>
                 <div class="myPage_left_board1">
-                    <h3>초코</h3>
+                    <h3>러버덕</h3>
                     <a href="#">
                         <img src="/static/image/cogwheel.png" alt="" class="myPage_left_cogwheel">
                     </a>
                 </div>
-                <button class="expert_change_btn" onclick="location.href='seller_orderList.html'">전문가 전환</button>
+                <button class="expert_change_btn" onclick="location.href='myPage_orderList.html'">의뢰인 전환</button>
 
                 <hr>
-                <button class="myPage_menuButton" onclick="location.href='myPage_orderList.html'">구매 관리</button>
+                <button class="myPage_menuButton" onclick="location.href='seller_orderList.html'">판매 관리</button>
                 <br>
-                <button class="myPage_menuButton" onclick="location.href='myPage_charges.html'">거래 내역</button>
+                <button class="myPage_menuButton" onclick="location.href='seller_myService.html'">나의 서비스</button>
                 <br>
-                <button class="myPage_menuButtonClick" onclick="location.href='myPage_cash.html'">마이 캐시</button>
+                <button class="myPage_menuButtonClick" onclick="location.href='seller_revenue.html'">수익 관리</button>
                 <br>
-                <button class="myPage_menuButton" onclick="location.href='myPage_like.html'">찜</button>
             </div>
         </div>
 
         <div class="myPage_right">
-            <div class="mypage_091021">마이 캐시</div>
+            <div class="mypage_091021">수익 관리</div>
             <div class="cash_091529">
                 <div>
-                    <span>보유캐시</span><br>
+                    <span>출금 가능</span><br>
                     <div class="cash_091557">
-                    <span>155,000</span>
+                        <span>2,200,000</span>
                     </div>
                 </div>
                 <div>
-                    <button>충전하기</button>
+                    <button>출금하기</button>
                 </div>
             </div>
             <div class="charges_091041">
@@ -87,34 +92,57 @@
             </div>
             <div class="cash_091444">
                 <input type="radio" name="tabs" id="tab1" checked>
-                <label for="tab1">충전내역</label>
+                <label for="tab1">수익금 내역</label>
+                <input type="radio" name="tabs" id="tab2">
+                <label for="tab2">출금 내역</label>
+
                 <div id="content1" class="cash_091504">
                     <div class="cash_091457">
                         <table>
                             <thead>
-                                <td>번호</td>
-                                <td>날짜</td>
-                                <td>결제수단</td>
-                                <td>결제금액</td>
+                            <td>번호</td>
+                            <td>날짜</td>
+                            <td>판매물품</td>
+                            <td>판매금액</td>
                             </thead>
                             <tr>
                                 <td>1</td>
                                 <td>2023.04.13</td>
-                                <td>신용카드</td>
-                                <td>59,900</td>
+                                <td>빈츠</td>
+                                <td>12,000</td>
                             </tr>
                             <tr style="font-weight: bold">
                                 <td>총합</td>
                                 <td></td>
                                 <td></td>
+                                <td>12,900</td>
+                            </tr>
+                        </table>
+                    </div>
+                </div>
+                <div id="content2" class="cash_091504">
+                    <div class="cash_091457">
+                        <table>
+                            <thead>
+                            <td>번호</td>
+                            <td>날짜</td>
+                            <td>출금금액</td>
+                            </thead>
+                            <tr>
+                                <td>1</td>
+                                <td>2023.04.13</td>
                                 <td>59,900</td>
+                            </tr>
+                            <tr style="font-weight: bold">
+                                <td>총합</td>
+                                <td></td>
+                                <td>50,000</td>
                             </tr>
                         </table>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </main>
 
 <div data-include-path="footer.html"></div>

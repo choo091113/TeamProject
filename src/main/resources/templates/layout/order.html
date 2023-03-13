@@ -4,12 +4,12 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width" , initial-scale="1">
 	<title>추몽</title>
-	<link rel="stylesheet" href="/static/css/bootstrap.css">
 	<link rel="stylesheet" href="/static/css/order.css">
-	<link rel="stylesheet" href="/static/css/codingBooster.css">
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="/static/js/bootstrap.js"></script>
 
+	<!-- 'header.html' 과 'footer.html' 불러오는 script-->
 	<script>
-
         window.addEventListener('load', function() {
             var allElements = document.getElementsByTagName('*');
             Array.prototype.forEach.call(allElements, function(el) {
@@ -26,14 +26,11 @@
                 }
             });
         });
-
-
     </script>
 </head>
 <body>
 <div data-include-path="header.html"></div>
 
-<!-- 결제하기 -->
 <div class="order_theme">
 	<div class="grid_small">
 		<div class="board_header">
@@ -48,10 +45,10 @@
 				<div class="board_block">
 					<h3>주문 상품</h3>
 					<div class="purchase_product">
-						<div class="purchase_product_thumb"><img src="/static/image/bin00.png" alt=""></div>
+						<div class="purchase_product_thumb"><img src="/image/duck00.jpeg" alt=""></div>
 						<div class="purchase_product_caption">
 							<dl>
-								<dt>기초 도형으로 쉽게 접근하는 드로잉</dt>
+								<dt>주문한 상품의 이름</dt>
 								<dd>주문한 상품의 설명 : 러버덕</dd>
 							</dl>
 							<em>
@@ -76,7 +73,7 @@
 					</div>
 				</div>
 				<div class="board_block">
-					<div>
+					<div class="board_block_item">
 						<strong>총 결제 금액</strong>
 						<strong>250,000,000원</strong>
 					</div>

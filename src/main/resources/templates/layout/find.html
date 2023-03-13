@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" class="h-100">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author"
+          content="Mark Otto, Jacob Thornton, and Bootstrap contributors">
+    <meta name="generator" content="Hugo 0.104.2">
+    <title>Cover Template · Bootstrap v5.2</title>
+
+    <link rel="canonical"
+          href="https://getbootstrap.com/docs/5.2/examples/cover/">
+    <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+            integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+            crossorigin="anonymous" />
+
+    <style>
+body {
+   background: linear-gradient(-135deg, #7f7fd5, #86a8e7, #91EAE4) fixed;
+}
+
+.card {
+   width: 500px;
+   border: none;
+}
+
+.btr {
+   border-top-right-radius: 5px !important;
+}
+
+.btl {
+   border-top-left-radius: 5px !important;
+}
+
+.btn-dark {
+   color: #fff;
+   background-color: #0d6efd;
+   border-color: #0d6efd;
+}
+
+.btn-dark:hover {
+   color: #fff;
+   background-color: #0d6efd;
+   border-color: #000;
+}
+
+.nav-pills {
+   display: table !important;
+   width: 100%;
+}
+
+.nav-pills .nav-link {
+   border-radius: 0px;
+   border-bottom: 1px solid #0d6efd40;
+}
+
+.nav-item {
+   display: table-cell;
+   background: #0d6efd2e;
+}
+
+.form {
+   padding: 10px;
+   height: 300px;
+}
+
+.form input {
+   margin-bottom: 12px;
+   border-radius: 3px;
+}
+
+.form input:focus {
+   box-shadow: none;
+}
+
+.form button {
+   margin-top: 20px;
+}
+</style>
+
+
+    <!-- Custom styles for this template -->
+
+</head>
+<body class="d-flex h-100  text-bg-white">
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+<script
+        src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+<div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+    <header class="mb-auto">
+        <div>
+            <h3 class="float-md-start mb-0">
+                <a href="Main.html" class="text-dark">Choo~</a>
+            </h3>
+        </div>
+    </header>
+
+    <main class="px-3">
+        <h1 class= "text-center"><strong>아이디 · 비밀번호 찾기</strong></h1>
+        <div class="d-flex justify-content-center align-items-center mt-5 ">
+
+
+            <div class="card">
+
+                <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                    <li class="nav-item text-center"><a
+                            class="nav-link active btl" id="pills-home-tab"
+                            data-toggle="pill" href="#pills-home" role="tab"
+                            aria-controls="pills-home" aria-selected="true">아이디</a></li>
+                    <li class="nav-item text-center"><a class="nav-link btr"
+                                                        id="pills-profile-tab" data-toggle="pill" href="#pills-profile"
+                                                        role="tab" aria-controls="pills-profile" aria-selected="false">비밀번호</a>
+                    </li>
+                </ul>
+                <div class="tab-content" id="pills-tabContent">
+                    <div class="tab-pane fade show active" id="pills-home"
+                         role="tabpanel" aria-labelledby="pills-home-tab">
+                        <div class=m-3>
+                            <h5>
+                                <strong>아이디 찾기</strong>
+                            </h5>
+                            <h6>본인 인증 받으실 정보를 입력해주세요.</h6>
+                            <h6>휴대폰 번호로 아이디(이메일 주소)를 보내드립니다.</h6>
+                        </div>
+                        <div class="form px-4 pt-5">
+                            <h6>
+                                <strong>실명</strong>
+                            </h6>
+                            <input type="text" name="" class="form-control"
+                                   placeholder="실명을 입력해주세요.">
+                            <h6>
+                                <strong>휴대폰 번호</strong>
+                            </h6>
+                            <input type="text" name="" class="form-control"
+                                   placeholder="휴대폰번호를 입력해주세요.">
+                            <button class="btn btn-dark btn-block w-100">아이디(이메일
+                                주소)받기</button>
+
+                        </div>
+
+
+
+                    </div>
+                    <div class="tab-pane fade" id="pills-profile" role="tabpanel"
+                         aria-labelledby="pills-profile-tab">
+
+
+                        <div class="form px-4">
+                            <h5>
+                                <strong>비밀번호 찾기</strong>
+                            </h5>
+                            <h6>가입 시 등록하신 이메일 주소를 입력해주세요.</h6>
+                            <h6>비밀번호 재설정 링크를 보내드립니다.</h6>
+                            <br>
+                            <h6>
+                                <strong>이메일</strong>
+                            </h6>
+
+                            <input type="text" name="" class="form-control"
+                                   placeholder="이메일 주소를 입력해주세요.">
+
+                            <button class="btn btn-dark btn-block w-100">비밀번호 재설정
+                                링크 받기</button>
+
+
+                        </div>
+
+
+
+                    </div>
+
+                </div>
+
+
+
+
+            </div>
+
+
+        </div>
+    </main>
+
+    <footer class="mt-auto text-white-50">
+        <p>
+            <a href="https://github.com/choo091113/" class="text-dark">Mister_Choo
+                ~</a> or <a href="Main.html" class="text-dark">Mong</a> sexy
+        </p>
+    </footer>
+</div>
+
+
+
+</body>
+</html>

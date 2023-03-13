@@ -1,37 +1,18 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>추몽 페이지 모달</title>
-<!-- Bootstrap CDN -->
-<link
-   href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
-   rel="stylesheet"
-   integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
-   crossorigin="anonymous" />
-   <script>
-
-        window.addEventListener('load', function() {
-            var allElements = document.getElementsByTagName('*');
-            Array.prototype.forEach.call(allElements, function(el) {
-                var includePath = el.dataset.includePath;
-                if (includePath) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            el.outerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open('GET', includePath, true);
-                    xhttp.send();
-                }
-            });
-        });
+   <meta charset="utf-8" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <title>추몽 페이지 모달</title>
+   <!-- Bootstrap CDN -->
+   <link
+           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+           rel="stylesheet"
+           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+           crossorigin="anonymous" />
 
 
-    </script>
-<style type="text/css">
+   <style type="text/css">
 .modal-dialog {
    max-width: 980px;
 }
@@ -40,11 +21,11 @@
    /* width: 980px; */
    /* align-items: end; */
    /* background-image: url("resources/img/test2.jpg"); */
-   
+
 }
 
 body {
-   background-image: url("/static/image/cat03.jpeg");
+   background-image: url("resources/img/test2.jpg");
    background-repeat: no-repeat;
    background-size: 50% 100%;
 }
@@ -59,90 +40,91 @@ body {
 </style>
 </head>
 <body style="width: 100vw; height: 100vh; display: flex">
-   <!-- Bootstrap CDN -->
-   <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
-      crossorigin="anonymous"></script>
+<!-- Bootstrap CDN -->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
 
-   <!-- Button trigger modal -->
-   <div class="login-wrap">
-      <!-- Modal -->
-      <div class="modal-dialog px-auto my-auto" role="document">
-         <div class="modal-content align-items-center justify-content-center">
-            <div class="modal-content row mx-auto">
-               <div style="width: 380px; background-color: #fff">
-                  <!-- Modal Body -->
-                  <div class="mx-3">
-                     <h1>로그인</h1>
-                  </div>
+<!-- Button trigger modal -->
+<div class="login-wrap">
+   <!-- Modal -->
+   <div class="modal-dialog px-auto my-auto" role="document">
+      <div class="modal-content align-items-center justify-content-center">
+         <div class="modal-content row mx-auto">
+            <div style="width: 380px; background-color: #fff">
+               <!-- Modal Body -->
+               <div class="mx-3">
+                  <h1>로그인</h1>
+               </div>
 
-                  <div class="modal-body">
-                     <form action="ResponseLogin.jsp" method="post">
-                        <input type="email" class="form-control p-3" name="email"
-                           placeholder="이메일을 입력해 주세요." /> <input type="password"
-                           class="form-control p-3 mt-3" name="pwd"
-                           placeholder="비밀번호를 입력해 주세요." />
+               <div class="modal-body">
+                  <form action="./ResponseLogin.jsp" method="post">
+                     <input type="email" class="form-control p-3" name="email"
+                            placeholder="이메일을 입력해 주세요." /> <input type="password"
+                                                                  class="form-control p-3 mt-3" name="pwd"
+                                                                  placeholder="비밀번호를 입력해 주세요." />
 
-                        <button type="submit" id="loginBtn"
-                           class="col-12 mt-3 btn btn-warning p-3">
-                           <b>로그인</b>
-                        </button>
+                     <button type="submit" id="loginBtn"
+                             class="col-12 mt-3 btn btn-warning p-3">
+                        <b>로그인</b>
+                     </button>
 
-                        <div class="row m-0 mt-3">
-                           <div class="form-check col">
-                              <input class="form-check-input" type="checkbox" value=""
-                                 id="keepLogin" /> <label class="form-check-label"
-                                 for="keepLogin"><b>로그인 유지</b></label>
-                           </div>
-                           <div class="col-auto">아이디 비밀번호 찾기</div>
+                     <div class="row m-0 mt-3">
+                        <div class="form-check col">
+                           <input class="form-check-input" type="checkbox" value=""
+                                  id="keepLogin" /> <label class="form-check-label"
+                                                           for="keepLogin"><b>로그인 유지</b></label>
                         </div>
+                        <div class="col-auto"><a href="find.html">아이디·비밀번호 찾기</a></div>
 
-                        <div class="text-center mt-3 mb-1">
-                           <b>SNS계정으로 간편하게 로그인하세요.</b>
-                        </div>
-                        <div class="row my-5 mx-0">
-                           <div class="col text-center">
-                              <button type="button" class="btn col-auto btn-success">
-                                 N</button>
-                           </div>
-                           <div class="col text-center">
-                              <button type="button" class="btn col-auto btn-warning">
-                                 K</button>
-                           </div>
-                           <div class="col text-center">
-                              <button type="button" class="btn col-auto btn-primary">
-                                 F</button>
-                           </div>
-                           <div class="col text-center">
-                              <button type="button"
-                                 class="btn col-auto btn-outline-secondary">G</button>
-                           </div>
-                           <div class="col text-center">
-                              <button type="button" class="btn col-auto btn-secondary">
-                                 A</button>
-                           </div>
-                        </div>
-                        <hr />
+                     </div>
 
-                        <div>추몽의 회원이 되시면</div>
-                        <div>
-                           <b>3000만원 할인혜택</b>을 드립니다.
+                     <div class="text-center mt-3 mb-1">
+                        <b>SNS계정으로 간편하게 로그인하세요.</b>
+                     </div>
+                     <div class="row my-5 mx-0">
+                        <div class="col text-center">
+                           <button type="button" class="btn col-auto btn-success">
+                              N</button>
                         </div>
+                        <div class="col text-center">
+                           <button type="button" class="btn col-auto btn-warning">
+                              K</button>
+                        </div>
+                        <div class="col text-center">
+                           <button type="button" class="btn col-auto btn-primary">
+                              F</button>
+                        </div>
+                        <div class="col text-center">
+                           <button type="button"
+                                   class="btn col-auto btn-outline-secondary">G</button>
+                        </div>
+                        <div class="col text-center">
+                           <button type="button" class="btn col-auto btn-secondary">
+                              A</button>
+                        </div>
+                     </div>
+                     <hr />
 
-                        <div class="row mx-0 mt-4">
-                           <button type="button" class="btn btn-outline-primary p-3"
-                              onclick="location.href='signpage.html'">추몽 회원가입 하기</button>
-                        </div>
-                     </form>
-                  </div>
+                     <div>추몽의 회원이 되시면</div>
+                     <div>
+                        <b>3000만원 할인혜택</b>을 드립니다.
+                     </div>
+
+                     <div class="row mx-0 mt-4">
+                        <button type="button" class="btn btn-outline-primary p-3"
+                                onclick="location.href='SignPage.html'">추몽 회원가입 하기</button>
+                     </div>
+                  </form>
                </div>
             </div>
          </div>
       </div>
    </div>
+</div>
 
-   <!— Javascript —>
-   <script lang="text/javascript"></script>
+<!— Javascript —>
+<script lang="text/javascript"></script>
 </body>
 </html>

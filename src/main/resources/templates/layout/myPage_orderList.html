@@ -6,10 +6,11 @@
     <title>추몽</title>
     <link rel="stylesheet" href="/static/css/myPage.css">
     <link rel="stylesheet" href="/static/css/myPage_orderList.css">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
 
     <!-- 'header.html' 과 'footer.html' 불러오는 script-->
     <script>
-
         window.addEventListener('load', function() {
             var allElements = document.getElementsByTagName('*');
             Array.prototype.forEach.call(allElements, function(el) {
@@ -26,7 +27,6 @@
                 }
             });
         });
-
 
     </script>
 </head>
@@ -47,10 +47,10 @@
                         <img src="/static/image/cogwheel.png" alt="" class="myPage_left_cogwheel">
                     </a>
                 </div>
-                <button class="expert_change_btn" onclick="location.href='#'">전문가 전환</button>
+                <button class="expert_change_btn" onclick="location.href='seller_orderList.html'">전문가 전환</button>
 
                 <hr>
-                <button class="myPage_menuButton" onclick="location.href='myPage_orderList.html'">구매 관리</button>
+                <button class="myPage_menuButtonClick" onclick="location.href='myPage_orderList.html'">구매 관리</button>
                 <br>
                 <button class="myPage_menuButton" onclick="location.href='myPage_charges.html'">거래 내역</button>
                 <br>
@@ -61,11 +61,11 @@
         </div>
 
         <div class="myPage_right">
-            <div><h3>구매 관리</h3></div>
+            <div class="mypage_091021">구매 관리</div>
             <div class="myPage_right_orderlist1">
                 <div>
-                    <input type="search" style="border-radius: 6px">
-                    <button>조회</button>
+                    <input type="search" class="orderlist_091018">
+                    <button class="mypage_090958" style="width:100px">조회</button>
                 </div>
                 <div>
                     <input type="date">
@@ -84,23 +84,28 @@
                 <div id="content1" class="tab-content red">
                     <div class="orderList_1">
                         <div class="orderList_1_1">
-                            <span>요청사항 미작성</span>
-                            <span>주문일시 23.03.08 17:25</span>
+                            <span style="color: red; font-weight:bold;">요청사항 미작성</span>
+                            <div>
+                                <span style="font-size: 12px">주문일시</span>
+                                <span style="font-size: 12px"><strong>23.03.08 17:25</strong></span>
+                            </div>
                         </div>
-                        <div class="orderList_1_2">
-                          <img src="/static/image/sad.jpeg" alt="" class="orderList_img">
-                          <div class="orderList_1_2_1">
-                              <dl>
-                                  <dd>쇼핑몰 로고, 브랜딩, 상세페이지 제작</dd>
-                                  <dd>35,000원</dd>
-                                  <dd>행복한전문가</dd>
-                                  <button>문의하기</button>
-                              </dl>
-                          </div>
+                        <div class="orderList_1_2" style="margin-top: 20px">
+                            <img src="static/image/sad.jpeg" alt="" class="orderList_img">
+                            <div class="orderList_1_2_1">
+                                <dl>
+                                    <dd>쇼핑몰 로고, 브랜딩, 상세페이지 제작</dd>
+                                    <dd><strong>35,000원</strong></dd>
+                                    <div class="between">
+                                        <dd style="margin-right: 20px; margin-top: 5px; font-size: 12px">행복한전문가</dd>
+                                        <button class="orderlist_091001">문의하기</button>
+                                    </div>
+                                </dl>
+                            </div>
                         </div>
-                        <div>
-                        전문가가 작업을 시작할 수 있도록 요청사항을 작성해 주세요.
-                        <button>요청사항 작성</button>
+                        <div class="orderlist_090946" style="font-size: 12px; align-items: center">
+                            전문가가 작업을 시작할 수 있도록 요청사항을 작성해 주세요.
+                            <button class="mypage_090958">요청사항 작성</button>
                         </div>
                     </div>
                 </div>

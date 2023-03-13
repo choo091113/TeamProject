@@ -1,0 +1,22 @@
+.expert_change_btn {
+    padding: 5%;
+    align-items: center;
+    width: 100%;
+    background: #fff;
+    font-weight: 700;
+    font-size: 1.6rem;
+    margin-top: 1.6rem;
+    border-radius: 1rem;
+    border:1px solid gray;
+    color: black;
+}
+
+.cash_091444 input:checked + label {
+  /* 해당 메뉴가 선택된 상태인지 아닌지를 사용자에게 알려줄 수 있음 */
+    font-weight: bold;
+    color: orange;
+}
+
+.cash_091444 label:hover {
+  cursor: pointer; /*마우스 모양 변경*/
+}

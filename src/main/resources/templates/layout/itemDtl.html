@@ -4,12 +4,11 @@
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width" , initial-scale="1">
 	<title>추몽</title>
-	<link rel="stylesheet" href="/static/css/bootstrap.css">
 	<link rel="stylesheet" href="/static/css/itemDtl.css">
-	<link rel="stylesheet" href="/static/css/codingBooster.css">
-
+	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+	<script src="/static/js/bootstrap.js"></script>
+	<!-- 'header.html' 과 'footer.html' 불러오는 script-->
 	<script>
-
         window.addEventListener('load', function() {
             var allElements = document.getElementsByTagName('*');
             Array.prototype.forEach.call(allElements, function(el) {
@@ -26,14 +25,11 @@
                 }
             });
         });
-
-
     </script>
 </head>
 <body>
 <div data-include-path="header.html"></div>
 
-<!-- 상품 상세 페이지 -->
 <section class="product_info">
 	<h2 class="hidden">product_info</h2>
 	<div class="container">
@@ -87,7 +83,6 @@
 		</div>
 	</div>
 </section>
-
 
 <div data-include-path="footer.html"></div>
 </body>

@@ -5,9 +5,11 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1">
     <title>추몽</title>
     <link rel="stylesheet" href="/static/css/myPage.css">
-    <link rel="stylesheet" href="/static/css/myPage_like.css">
+    <link rel="stylesheet" href="/static/css/seller_orderList.css">
+    <link rel="stylesheet" href="/static/css/seller.css">
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="/static/js/bootstrap.js"></script>
+
 
     <!-- 'header.html' 과 'footer.html' 불러오는 script-->
     <script>
@@ -31,8 +33,6 @@
 
 
 
-
-
     </script>
 </head>
 
@@ -44,29 +44,28 @@
         <div class="myPage_left">
             <div class="myPage_left_profile">
                 <div>
-                    <img src="static/image/icecream00.jpeg" alt="" class="myPage_left_Image">
+                    <img src="/static/image/duck00.jpeg" alt="" class="myPage_left_Image">
                 </div>
                 <div class="myPage_left_board1">
-                    <h3>초코</h3>
+                    <h3>러버덕</h3>
                     <a href="#">
                         <img src="/static/image/cogwheel.png" alt="" class="myPage_left_cogwheel">
                     </a>
                 </div>
-                <button class="expert_change_btn" onclick="location.href='seller_orderList.html'">전문가 전환</button>
+                <button class="expert_change_btn" onclick="location.href='myPage_orderList.html'">의뢰인 전환</button>
 
                 <hr>
-                <button class="myPage_menuButton" onclick="location.href='myPage_orderList.html'">구매 관리</button>
+                <button class="myPage_menuButtonClick" onclick="location.href='seller_orderList.html'">판매 관리</button>
                 <br>
-                <button class="myPage_menuButton" onclick="location.href='myPage_charges.html'">거래 내역</button>
+                <button class="myPage_menuButton" onclick="location.href='seller_myService.html'">나의 서비스</button>
                 <br>
-                <button class="myPage_menuButton" onclick="location.href='myPage_cash.html'">마이 캐시</button>
+                <button class="myPage_menuButton" onclick="location.href='seller_revenue.html'">수익 관리</button>
                 <br>
-                <button class="myPage_menuButtonClick" onclick="location.href='myPage_like.html'">찜</button>
             </div>
         </div>
 
         <div class="myPage_right">
-            <div class="mypage_091021">찜</div>
+            <div class="mypage_091021">판매 관리</div>
             <div class="myPage_right_orderlist1">
                 <div>
                     <input type="search" class="orderlist_091018">
@@ -78,34 +77,58 @@
                     <input type="date">
                 </div>
             </div>
-            <div class="like_091640" style="margin-top:50px">
+            <div class="tab-area">
                 <input type="radio" name="tabs" id="tab1" checked>
-                <label for="tab1">전체</label>
+                <label for="tab1">진행중</label>
+                <input type="radio" name="tabs" id="tab2">
+                <label for="tab2">작업물 발송</label>
+                <input type="radio" name="tabs" id="tab3">
+                <label for="tab3">취소/에러</label>
 
                 <div id="content1" class="tab-content red">
                     <div class="orderList_1">
-                        <div class="orderList_1_1">
-                            <div>
-                                <span style="font-size: 12px">주문일시</span>
-                                <span style="font-size: 12px"><strong>23.03.08 17:25</strong></span>
-                                <a href="#">&nbsp;&nbsp;X</a>
+                        <div style="width: 80%">
+                            <div class="orderList_1_1">
+                                <span style="color: red; font-weight:bold">요청사항 미작성</span>
+                                <div>
+                                    <span style="font-size: 12px">주문일시</span>
+                                    <span style="font-size: 12px"><strong>23.03.08 17:25</strong></span>
+                                </div>
                             </div>
-                        </div>
-                        <a href="#">
-                            <div class="orderList_1_2" style="margin-top:20px">
+                            <div class="orderList_1_2" style="margin-top: 20px">
                                 <img src="/static/image/sad.jpeg" alt="" class="orderList_img">
                                 <div class="orderList_1_2_1">
                                     <dl>
                                         <dd>쇼핑몰 로고, 브랜딩, 상세페이지 제작</dd>
                                         <dd><strong>35,000원</strong></dd>
                                         <div class="between">
-                                            <dd style="margin-right: 20px; margin-top: 5px; font-size: 12px">행복한전문가</dd>
+                                            <button class="orderlist_091001">문의하기</button>
                                         </div>
                                     </dl>
                                 </div>
                             </div>
-                        </a>
+                            <div class="orderlist_090946" style="font-size: 12px; align-items: center">
+                                <div>
+                                    <dl style="text-align:left; margin:0; padding:0.3rem">
+                                        <dd>의뢰인이 요청사항을 작성하지 않았습니다.</dd>
+                                        <dd>이미 받았다면, 작업 시작 버튼을 눌러 진행중 상태로 변경해 주세요.</dd>
+                                    </dl>
+                                </div>
+                                <button class="mypage_090958">작업 시작</button>
+                            </div>
+                        </div>
+                        <div class="orderlist_101437">
+                            <img src="/image/user.png" alt="" class="orderlist_091739"><br><br>
+                            <span style="font-weight: bold">옥수수수염차</span><br><br>
+                            <a href="#"><span>>문의하기</span></a>
+                        </div>
                     </div>
+                </div>
+                <div id="content2" class="tab-content blue">
+                    완료된 내역이 없습니다.
+                </div>
+                <div id="content3" class="tab-content yellow">
+                    취소된 내역이 없습니다.
                 </div>
             </div>
         </div>

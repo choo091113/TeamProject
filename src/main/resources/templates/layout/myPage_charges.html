@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width" , initial-scale="1">
     <title>추몽</title>
     <link rel="stylesheet" href="/static/css/myPage.css">
+    <link rel="stylesheet" href="/static/css/myPage_charges.css">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="/static/js/bootstrap.js"></script>
 
     <!-- 'header.html' 과 'footer.html' 불러오는 script-->
     <script>
@@ -46,12 +49,12 @@
                         <img src="/static/image/cogwheel.png" alt="" class="myPage_left_cogwheel">
                     </a>
                 </div>
-                <button class="expert_change_btn" onclick="location.href='#'">전문가 전환</button>
+                <button class="expert_change_btn" onclick="location.href='seller_orderList.html'">전문가 전환</button>
             </div>
             <hr>
             <button class="myPage_menuButton" onclick="location.href='myPage_orderList.html'">구매 관리</button>
             <br>
-            <button class="myPage_menuButton" onclick="location.href='myPage_charges.html'">거래 내역</button>
+            <button class="myPage_menuButtonClick" onclick="location.href='myPage_charges.html'">거래 내역</button>
             <br>
             <button class="myPage_menuButton" onclick="location.href='myPage_cash.html'">마이 캐시</button>
             <br>
@@ -59,17 +62,78 @@
         </div>
 
         <div class="myPage_right">
-            <div><h3>거래 내역</h3></div>
+            <div class="mypage_091021">거래 내역</div>
+            <div class="charges_091041">
+                <div>
+                    <input type="date">
+                    <span>~</span>
+                    <input type="date" class="marginright">
+                </div>
+                <select class="marginright" style="width:100px; height:28px">
+                    <option>5개</option>
+                    <option>15개</option>
+                    <option>30개</option>
+                </select>
+                <button class="mypage_090958" style="width: 100px">조회</button>
+            </div>
             <div class="tab-area">
                 <input type="radio" name="tabs" id="tab1" checked>
-                <label for="tab1">결제내역</label>
+                <label for="tab1">전체</label>
                 <input type="radio" name="tabs" id="tab2">
-                <label for="tab2">환불내역</label>
+                <label for="tab2">결제내역</label>
+                <input type="radio" name="tabs" id="tab3">
+                <label for="tab3">환불내역</label>
 
                 <div id="content1" class="tab-content red">
-                    결제 내역이 없습니다.
+                    <div class="charges_091113">
+                        <div class="charges_091114">
+                            입금</br>
+                            대기
+                        </div>
+                        <div class="charges_091116">
+                            <div style="height:50%">
+                                <span>2023.03.07</span>
+                                <div class="charges_091117">
+                                    <span class="charges_091146">서비스 구매</span>
+                                    <span class="charges_091148">30,000원</span>
+                                </div>
+                            </div>
+                            <div class="charges_091150">
+                                <dl style="margin:0">
+                                    <dd>가상계좌 : 카카오뱅크 3333022574</dd>
+                                    <dd>입금금액 : 30,000원</dd>
+                                    <dd>마감일자 : 23.04.13 09:30</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
                 <div id="content2" class="tab-content blue">
+                    <div class="charges_091113">
+                        <div class="charges_091114">
+                            입금</br>
+                            대기
+                        </div>
+                        <div class="charges_091116">
+                            <div style="height:50%">
+                                <span>2023.03.07</span>
+                                <div class="charges_091117">
+                                    <span class="charges_091146">서비스 구매</span>
+                                    <span class="charges_091148">30,000원</span>
+                                </div>
+                            </div>
+                            <div class="charges_091150">
+                                <dl style="margin:0">
+                                    <dd>가상계좌 : 카카오뱅크 3333022574</dd>
+                                    <dd>입금금액 : 30,000원</dd>
+                                    <dd>마감일자 : 23.04.13 09:30</dd>
+                                </dl>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div id="content3" class="tab-content blue">
                     환불 내역이 없습니다.
                 </div>
             </div>
