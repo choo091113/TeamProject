@@ -4,14 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width" , initial-scale="1">
     <title>추몽</title>
-    <link rel="stylesheet" href="/static/css/myPage.css">
-    <link rel="stylesheet" href="/static/css/seller_myService.css">
-    <link rel="stylesheet" href="/static/css/seller.css">
+    <link rel="stylesheet" href=" /css/myPage.css">
+    <link rel="stylesheet" href=" /css/seller_myService.css">
+    <link rel="stylesheet" href=" /css/seller.css">
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
-    <script src="/static/js/bootstrap.js"></script>
+    <script src=" /js/bootstrap.js"></script>
 
 
-    <!-- 'header.html' 과 'footer.html' 불러오는 script-->
+    <!-- 'header' 과 'footer' 불러오는 script-->
     <script>
         window.addEventListener('load', function() {
             var allElements = document.getElementsByTagName('*');
@@ -43,7 +43,7 @@
 </head>
 
 <body>
-<div data-include-path="header.html"></div>
+<div data-include-path="header"></div>
 
 <main class="myPage_theme">
     <div class="myPage_all">
@@ -58,14 +58,14 @@
                         <img src="static/image/cogwheel.png" alt="" class="myPage_left_cogwheel">
                     </a>
                 </div>
-                <button class="expert_change_btn" onclick="location.href='myPage_orderList.html'">의뢰인 전환</button>
+                <button class="expert_change_btn" onclick="location.href='myPage_orderList'">의뢰인 전환</button>
 
                 <hr>
-                <button class="myPage_menuButton" onclick="location.href='seller_orderList.html'">판매 관리</button>
+                <button class="myPage_menuButton" onclick="location.href='seller_orderList'">판매 관리</button>
                 <br>
-                <button class="myPage_menuButtonClick" onclick="location.href='seller_myService.html'">나의 서비스</button>
+                <button class="myPage_menuButtonClick" onclick="location.href='seller_myService'">나의 서비스</button>
                 <br>
-                <button class="myPage_menuButton" onclick="location.href='seller_revenue.html'">수익 관리</button>
+                <button class="myPage_menuButton" onclick="location.href='seller_revenue'">수익 관리</button>
                 <br>
             </div>
         </div>
@@ -79,7 +79,7 @@
                 <div id="content1" class="tab-content red">
                     <div class="orderList_1">
                         <div class="myservice_101727">
-                            <img src="/static/image/sad.jpeg" alt="" style="width:190px; height:190; border-radius: 1.2rem">
+                            <img src=" /image/sad.jpeg" alt="" style="width:190px; height:190; border-radius: 1.2rem">
                         </div>
                         <div style="width: 100%; display: flex">
                             <div style="width: 90%">
@@ -104,6 +104,6 @@
     </div>
 </main>
 
-<div data-include-path="footer.html"></div>
+<div data-include-path="footer"></div>
 </body>
 </html>
