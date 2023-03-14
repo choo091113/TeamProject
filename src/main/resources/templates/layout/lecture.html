@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thynmeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width" , initial-scale="1">
@@ -7,32 +7,12 @@
 <link rel="stylesheet" href=" /css/bootstrap.css">
 <link rel="stylesheet" href=" /css/codingBooster.css">
 
-	<script>
 
-        window.addEventListener('load', function() {
-            var allElements = document.getElementsByTagName('*');
-            Array.prototype.forEach.call(allElements, function(el) {
-                var includePath = el.dataset.includePath;
-                if (includePath) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            el.outerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open('GET', includePath, true);
-                    xhttp.send();
-                }
-            });
-        });
-
-
-    </script>
 </head>
 <body>
-<div data-include-path="header"></div>
+<th:block th:replace="fragments/header :: headerFragment"></th:block>
 
-	<h1><b>&nbsp;&nbsp;그림그림 강사</b></h1>
+<h1><b>&nbsp;&nbsp;그림그림 강사</b></h1>
 <div class = "container">
 <div class = "row">
 <ul class = "list-group">
@@ -62,6 +42,6 @@
 <hr>
 </div>
 
-<div data-include-path="footer"></div>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
 </html>

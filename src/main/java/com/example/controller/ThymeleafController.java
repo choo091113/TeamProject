@@ -103,9 +103,9 @@ public class ThymeleafController {
         return "layout/seller_orderList.html";
     }
 
-    @GetMapping(value = "layout/seller_revenuce")
-    public String seller_revenuce() {
-        return "layout/seller_myService.html";
+    @GetMapping(value = "layout/seller_revenue")
+    public String seller_revenue() {
+        return "layout/seller_revenue.html";
     }
 
     @GetMapping(value = "layout/signCli")

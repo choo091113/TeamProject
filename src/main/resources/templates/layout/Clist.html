@@ -1,38 +1,18 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thynmeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width" , initial-scale="1">
 <title>추몽</title>
 <link rel="stylesheet" href="/css/bootstrap.css">
-<link rel="stylesheet" href=" /css/codingBooster.css">
-<link rel="stylesheet" href=" /css/list.css">
-
-	<script>
-
-        window.addEventListener('load', function() {
-            var allElements = document.getElementsByTagName('*');
-            Array.prototype.forEach.call(allElements, function(el) {
-                var includePath = el.dataset.includePath;
-                if (includePath) {
-                    var xhttp = new XMLHttpRequest();
-                    xhttp.onreadystatechange = function () {
-                        if (this.readyState == 4 && this.status == 200) {
-                            el.outerHTML = this.responseText;
-                        }
-                    };
-                    xhttp.open('GET', includePath, true);
-                    xhttp.send();
-                }
-            });
-        });
+<link rel="stylesheet" href="/css/codingBooster.css">
+<link rel="stylesheet" href="/css/list.css">
 
 
-    </script>
 </head>
 
 <body>
-
+<th:block th:replace="fragments/header :: headerFragment"></th:block> <!-- 헤더 연동 -->
 
 
 <style type="text/css">
@@ -160,6 +140,6 @@
 	</div>
 	</div>
 
-<div data-include-path="footer"></div>
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
 </html>
