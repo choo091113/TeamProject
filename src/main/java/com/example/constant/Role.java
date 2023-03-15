@@ -1,6 +1,5 @@
 package com.example.constant;
 
-public enum Role { /* 유저 역할 */
-
+public enum Role {
     USER, PRO, ADMIN
 }
