@@ -1,4 +1,4 @@
-package com.example.controller;
+package com.example;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -18,10 +18,6 @@ public class ThymeleafController {
         return "layout/Clist.html";
     }
 
-    @GetMapping(value = "layout/complete")
-    public String complete() {
-        return "layout/complete.html";
-    }
 
     @GetMapping(value = "layout/emailsign")
     public String emailsign() {
@@ -108,10 +104,6 @@ public class ThymeleafController {
         return "layout/seller_revenue.html";
     }
 
-    @GetMapping(value = "layout/signCli")
-    public String signCli() {
-        return "layout/signCli.html";
-    }
 
     @GetMapping(value = "layout/signpage")
     public String signpage() {
