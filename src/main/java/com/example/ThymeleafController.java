@@ -49,11 +49,6 @@ public class ThymeleafController {
         return "layout/lecture.html";
     }
 
-    @GetMapping(value = "layout/loginpage")
-    public String loginpage() {
-        return "layout/loginpage.html";
-    }
-
     @GetMapping(value = "layout/myPage_cash")
     public String myPage_cash() {
         return "layout/myPage_cash.html";
