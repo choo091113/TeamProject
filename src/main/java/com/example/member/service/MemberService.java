@@ -6,6 +6,8 @@ import com.example.member.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Optional;
 
 @Service
@@ -45,5 +47,30 @@ return dto;
             // 조회 결과 없음( 이메일 없다 )
             return null;
         }
+    }
+
+    public MemberDTO updateForm(String myName) {
+     Optional<MemberEntity> optionalMemberEntity = memberRepository.findByMemberName(myName);
+     if(optionalMemberEntity.isPresent()) {
+         return MemberDTO.tomemberDTO(optionalMemberEntity.get());
+     } else {
+         return null;
+     }
+    }
+
+    public void update(MemberDTO memberDTO) {
+        memberRepository.save(MemberEntity.toUpdateMemberEntity(memberDTO));
+
+    }
+
+    public List<MemberDTO> findAll() {
+        List<MemberEntity> memberEntityList = memberRepository.findAll();
+List<MemberDTO> memberDTOList = new ArrayList<>();
+for (MemberEntity memberEntity: memberEntityList) {
+    memberDTOList.add(MemberDTO.tomemberDTO(memberEntity));
+    MemberDTO memberDTO = MemberDTO.tomemberDTO(memberEntity);
+    memberDTOList.add(memberDTO);
+}
+return memberDTOList;
     }
 }

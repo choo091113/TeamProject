@@ -12,6 +12,7 @@ import java.sql.Date;
 @Getter
 @Table(name = "member_table")
 public class MemberEntity {
+
     @Id
     @Column(unique = true) // unique 제약 조건 추가ㅣ
     private String memberEmail;
@@ -32,6 +33,17 @@ public class MemberEntity {
     private Date memberDate;
 
     public static MemberEntity toMemberEntity(MemberDTO memberDTO) {
+        MemberEntity memberEntity = new MemberEntity();
+        memberEntity.setMemberEmail(memberDTO.getMemberEmail());
+        memberEntity.setMemberPassword(memberDTO.getMemberPassword());
+        memberEntity.setMemberName(memberDTO.getMemberName());
+        memberEntity.setMemberType(memberDTO.getMemberType());
+        memberEntity.setMemberProfile(memberDTO.getMemberProfile());
+        memberEntity.setMemberDate(memberDTO.getMemberDate());
+        return memberEntity;
+    }
+
+    public static MemberEntity toUpdateMemberEntity(MemberDTO memberDTO) {
         MemberEntity memberEntity = new MemberEntity();
         memberEntity.setMemberEmail(memberDTO.getMemberEmail());
         memberEntity.setMemberPassword(memberDTO.getMemberPassword());
