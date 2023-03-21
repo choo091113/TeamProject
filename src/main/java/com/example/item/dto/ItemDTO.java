@@ -1,6 +1,7 @@
 package com.example.item.dto;
 
 import com.example.item.entity.ItemEntity;
+import com.example.member.dto.MemberDTO;
 import lombok.*;
 
 import javax.persistence.Column;
@@ -18,7 +19,7 @@ import java.sql.Date;
 public class ItemDTO {
     private String itemName;
     private int itemPrice;
-    private Blob itemImage;
+    private String itemImage;
 
     private String itemVideo;
 
@@ -34,7 +35,9 @@ public class ItemDTO {
 
     private String itemCategory3;
 
-    private String itemMember;
+    @OneToOne
+    @JoinColumn(name = "membername")
+    private MemberDTO member;
 
     private Date itemDate;
 
@@ -49,7 +52,8 @@ public class ItemDTO {
         itemDTO.setItemCategory1(itemEntity.getItemCategory1());
         itemDTO.setItemCategory2(itemEntity.getItemCategory2());
         itemDTO.setItemCategory3(itemEntity.getItemCategory3());
-        itemDTO.setItemMember(itemEntity.getItemMember());
+        MemberDTO memberDTO = MemberDTO.tomemberDTO(itemEntity.getMember());
+        itemDTO.setMember(memberDTO);
         itemDTO.setItemDate(itemEntity.getItemDate());
 
 

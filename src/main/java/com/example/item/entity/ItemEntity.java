@@ -27,7 +27,7 @@ public class ItemEntity {
 private int itemPrice;
 
     @Column
-    private Blob itemImage;
+    private String itemImage;
 
     @Column
     private String itemVideo;
@@ -47,11 +47,9 @@ private int itemPrice;
     @Column
     private String itemCategory3;
 
-   // @OneToOne
-    // @JoinColumn(name = "member_name")
-    @Column
-    private String itemMember;
-
+    @OneToOne
+    @JoinColumn(name = "item_member", referencedColumnName = "membername")
+    private MemberEntity member;
 
     @Column(insertable = false, updatable = false, columnDefinition = "date default sysdate")
     private Date itemDate;
@@ -67,7 +65,7 @@ private int itemPrice;
         itemEntity.setItemCategory1(itemDTO.getItemCategory1());
         itemEntity.setItemCategory2(itemDTO.getItemCategory2());
         itemEntity.setItemCategory3(itemDTO.getItemCategory3());
-        itemEntity.setItemMember(itemDTO.getItemMember());
+        itemEntity.setMember(MemberEntity.toMemberEntity(itemDTO.getMember()));
         itemEntity.setItemDate(itemDTO.getItemDate());
 
         return itemEntity;
