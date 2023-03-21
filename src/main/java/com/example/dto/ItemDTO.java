@@ -1,13 +1,10 @@
-package com.example.item.dto;
+package com.example.dto;
 
-import com.example.item.entity.ItemEntity;
-import com.example.member.dto.MemberDTO;
+import com.example.entity.ItemEntity;
 import lombok.*;
 
-import javax.persistence.Column;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
-import java.sql.Blob;
 import java.sql.Date;
 
 @Getter
@@ -36,8 +33,8 @@ public class ItemDTO {
     private String itemCategory3;
 
     @OneToOne
-    @JoinColumn(name = "membername")
-    private MemberDTO member;
+    @JoinColumn(name = "memberName")
+    private MemberDTO memberName;
 
     private Date itemDate;
 
@@ -52,8 +49,7 @@ public class ItemDTO {
         itemDTO.setItemCategory1(itemEntity.getItemCategory1());
         itemDTO.setItemCategory2(itemEntity.getItemCategory2());
         itemDTO.setItemCategory3(itemEntity.getItemCategory3());
-        MemberDTO memberDTO = MemberDTO.tomemberDTO(itemEntity.getMember());
-        itemDTO.setMember(memberDTO);
+     //   itemDTO.setMemberName(itemEntity.getMemberName());
         itemDTO.setItemDate(itemEntity.getItemDate());
 
 

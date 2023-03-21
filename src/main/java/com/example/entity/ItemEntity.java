@@ -1,15 +1,11 @@
-package com.example.item.entity;
+package com.example.entity;
 
 
-import com.example.item.dto.ItemDTO;
-import com.example.member.dto.MemberDTO;
-import com.example.member.entity.MemberEntity;
+import com.example.dto.ItemDTO;
 import lombok.Getter;
 import lombok.Setter;
-import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.persistence.*;
-import java.sql.Blob;
 import java.sql.Date;
 
 @Entity
@@ -47,9 +43,9 @@ private int itemPrice;
     @Column
     private String itemCategory3;
 
-    @OneToOne
-    @JoinColumn(name = "item_member", referencedColumnName = "membername")
-    private MemberEntity member;
+   /* @OneToOne
+    @JoinColumn(name = "memberName", referencedColumnName = "member")
+    private String memberName; */
 
     @Column(insertable = false, updatable = false, columnDefinition = "date default sysdate")
     private Date itemDate;
@@ -65,7 +61,7 @@ private int itemPrice;
         itemEntity.setItemCategory1(itemDTO.getItemCategory1());
         itemEntity.setItemCategory2(itemDTO.getItemCategory2());
         itemEntity.setItemCategory3(itemDTO.getItemCategory3());
-        itemEntity.setMember(MemberEntity.toMemberEntity(itemDTO.getMember()));
+      //  itemEntity.setMemberName(itemDTO.getMemberName());
         itemEntity.setItemDate(itemDTO.getItemDate());
 
         return itemEntity;

@@ -1,13 +1,12 @@
-package com.example.member.controller;
+package com.example.controller;
 
-import com.example.member.dto.MemberDTO;
-import com.example.member.service.MemberService;
+import com.example.dto.MemberDTO;
+import com.example.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;

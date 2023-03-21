@@ -1,6 +1,6 @@
-package com.example.member.dto;
+package com.example.dto;
 
-import com.example.member.entity.MemberEntity;
+import com.example.entity.MemberEntity;
 import lombok.*;
 
 import java.sql.Date;
