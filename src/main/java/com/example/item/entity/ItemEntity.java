@@ -47,8 +47,9 @@ private int itemPrice;
     @Column
     private String itemCategory3;
 
-    @OneToOne
-    @JoinColumn(name = "member_name")
+   // @OneToOne
+    // @JoinColumn(name = "member_name")
+    @Column
     private String itemMember;
 
 
