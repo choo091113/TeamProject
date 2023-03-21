@@ -38,7 +38,7 @@ public String loginform() {
         MemberDTO loginResult = memberService.login(memberDTO);
         if (loginResult != null) {
             // 로그인 성공
-            session.setAttribute("loginEmail", loginResult.getMemberEmail());
+            session.setAttribute("loginName", loginResult.getMemberName());
             return "layout/Main";
         } else {
             // 로그인 실패
