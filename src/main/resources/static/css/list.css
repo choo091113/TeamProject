@@ -140,7 +140,15 @@
 	transition: 0.5s ease;
 	cursor: pointer;
 	}
-	
+
+	 .mcard-imageitem {
+    	grid-area: image;
+       /* background: url(); */
+    	border-top-left-radius: 7px;
+    	border-top-right-radius: 7px;
+    	background-size: cover;
+    	} */
+
 	.mcard-imageyun {
 	grid-area: image;
     background: url("https://www.shutterstock.com/image-photo/portrait-handsome-asian-man-kick-260nw-549723892.jpg");
