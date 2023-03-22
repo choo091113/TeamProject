@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1">
+    <title>추몽</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src=" /js/bootstrap.js"></script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+    <link rel="stylesheet" href=" /css/itemForm.css">
+
+    <style>
+        .ck.ck-editor {
+            max-width: 100%;
+        }
+        .ck-editor__editable {
+            min-height: 300px;
+        }
+
+    </style>
+</head>
+
+<body>
+<th:block th:replace="fragments/header :: headerFragment"></th:block>
+<main style="background: #fff;">
+    <form action ="itemForm" method = "post">
+    <div class="itemform_211302">
+        <div class="itemform_211306">
+            <!-- 기본정보 -->
+            <div style="display:flex; flex:1; flex-direction:column"><span class="itemform_211450">기본 정보</span></div>
+            <div class="itemform_211316">
+                <span class="keytitle">제목</span>
+                <input placeholder="제목을 입력해주세요" type="text" name = "itemName">
+            </div>
+            <div class="itemform_211316">
+                <span class="keytitle">소제목</span>
+                <input placeholder="소제목을 입력해주세요" type="text" name = "itemContent1">
+            </div>
+            <div class="itemform_211316">
+                <span class="keytitle">카테고리</span>
+                <div style="display:flex">
+                    <div style="padding-top:6px; margin-right: 40px">
+                        <label>서비스 타입</label>
+                        <select style="width: 90px;" name = "itemCategory1">
+                            <option value = "상품">상품</option>
+                            <option value = "강의">강의</option>
+                        </select>
+                    </div>
+
+                    <div style="padding-top:6px; margin-right: 40px">
+                        <label>상위 카테고리</label>
+                        <select style="width: 90px;" name = "itemCategory2">
+                            <option value = "디자인">디자인</option>
+                            <option value = "크리에이티브">크리에이티브</option>
+                            <option value = "프로그래밍">프로그래밍</option>
+                            <option value = "언어">번역,통역</option>
+                        </select>
+                    </div>
+                    <div style="padding-top:6px">
+                        <label>하위 카테고리</label>
+                        <select style="width: 90px;" name = "itemCategory3">
+                            <option value = "캐릭터">캐릭터</option>
+                            <option value = "일러스트">일러스트</option>
+                            <option value = "캐리커쳐">캐리커쳐</option>
+                            <option value = "성우">성우</option>
+                            <option value = "작곡">작곡</option>
+                            <option value = "영상제작">영상제작</option>
+                            <option value = "게임제작">게임제작</option>
+                            <option value = "앱">앱</option>
+                            <option value = "홈페이지">홈페이지</option>
+                            <option value = "영어">영어</option>
+                            <option value = "일본어">일본어</option>
+                            <option value = "중국어">중국어</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <div class="itemform_211316">
+                <span class="keytitle">금액(VAT 포함)</span>
+                <input placeholder="최소 5천원 이상 금액을 입력해주세요" maxlength="300" type="int" name = "itemPrice"
+                       style="text-align:right; padding-right: 30px">
+                <span style="padding-top:6px">원</span>
+            </div>
+            <!-- 서비스설명 -->
+            <div style="display:flex; flex:1; flex-direction:column">
+                <span class="itemform_211450">서비스설명</span>
+                <div id="editor" style="margin-bottom:7px">
+                </div>
+                <script>
+              ClassicEditor
+                .create( document.querySelector( '#editor' ) )
+                .catch( error => {
+                  console.error( error );
+                } );
+
+                </script>
+            </div>
+
+            <!--임시 서비스 설명-->
+            <span class="itemform_211450">서비스설명</span>
+            <input placeholder="최소 5천원 이상 금액을 입력해주세요" maxlength="300" type="text" name = "itemContent2"
+                   style="text-align:right; padding-right: 30px">
+            <!-- 이미지 -->
+            <div style="display:flex; flex:1; flex-direction:column">
+                <span class="itemform_211450">이미지</span>
+                <div style="margin-bottom:30px">
+                    <p style="font-weight:bold">메인이미지(필수)</p>
+                    <input type=file name='file0' style='display: none;'>
+                    <img src='/image/add_image.png' border='0' onclick='document.all.file0.click();' class="image">
+                </div>
+                <div style="margin-bottom:30px">
+                    <p style="font-weight:bold">상세이미지(3개 필수)</p>
+                    <div style="display:flex;">
+                        <input type=file name='file1' style='display: none;'>
+                        <img src='/image/add_image.png' border='0' onclick='document.all.file1.click();' class="image">
+                        <input type=file name='file2' style='display: none;'>
+                        <img src='/image/add_image.png' border='0' onclick='document.all.file2.click();' class="image">
+                        <input type=file name='file3' style='display: none;'>
+                        <img src='/image/add_image.png' border='0' onclick='document.all.file3.click();' class="image">
+                    </div>
+                    </a>
+                </div>
+            </div>
+            <span class="keytitle">대표 이미지</span>
+            <input placeholder="제목을 입력해주세요" type="text" name = "itemImage1">
+            <span class="keytitle">이미지2</span>
+            <input placeholder="제목을 입력해주세요" type="text" name = "itemImage2">
+            <span class="keytitle">이미지3</span>
+            <input placeholder="제목을 입력해주세요" type="text" name = "itemImage3">
+            <span class="keytitle">이미지4</span>
+            <input placeholder="제목을 입력해주세요" type="text" name = "itemImage4">
+            <button type="submit" class="savebutton" onclick="location.href='/layout/Main'">제출하기</button>
+        </div>
+    </div>
+</form>
+</main>
+
+</body>
+</html>

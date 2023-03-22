@@ -18,12 +18,12 @@ public class ItemController {
     public final ItemService itemService;
 
     // 상품등록 페이지 출력 요청
-    @GetMapping("layout/itemon")
+    @GetMapping("layout/itemForm")
     public String saveitem() {
-        return "layout/itemon";
+        return "layout/itemForm";
     }
 
-    @PostMapping("layout/itemon")
+    @PostMapping("layout/itemForm")
     public String postitem(@ModelAttribute ItemDTO itemDTO) {
         System.out.println("assada");
         System.out.println("itemDTO = " + itemDTO);

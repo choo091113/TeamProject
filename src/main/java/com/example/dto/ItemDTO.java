@@ -16,7 +16,10 @@ import java.sql.Date;
 public class ItemDTO {
     private String itemName;
     private int itemPrice;
-    private String itemImage;
+    private String itemImage1;
+    private String itemImage2;
+    private String itemImage3;
+    private String itemImage4;
 
     private String itemVideo;
 
@@ -42,7 +45,10 @@ public class ItemDTO {
         ItemDTO itemDTO = new ItemDTO();
         itemDTO.setItemName(itemEntity.getItemName());
         itemDTO.setItemPrice(itemEntity.getItemPrice());
-        itemDTO.setItemImage(itemEntity.getItemImage());
+        itemDTO.setItemImage1(itemEntity.getItemImage1());
+        itemDTO.setItemImage2(itemEntity.getItemImage2());
+        itemDTO.setItemImage3(itemEntity.getItemImage3());
+        itemDTO.setItemImage4(itemEntity.getItemImage4());
         itemDTO.setItemVideo(itemEntity.getItemVideo());
         itemDTO.setItemContent1(itemEntity.getItemContent1());
         itemDTO.setItemContent2(itemEntity.getItemContent2());

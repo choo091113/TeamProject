@@ -114,6 +114,5 @@ public class ThymeleafController {
     public String Slist() {
         return "layout/Slist.html";
     }
-
-
 }
+

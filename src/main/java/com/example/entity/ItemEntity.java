@@ -23,8 +23,16 @@ public class ItemEntity {
 private int itemPrice;
 
     @Column
-    private String itemImage;
+    private String itemImage1;
 
+    @Column
+    private String itemImage2;
+
+    @Column
+    private String itemImage3;
+
+    @Column
+    private String itemImage4;
     @Column
     private String itemVideo;
 
@@ -54,7 +62,10 @@ private int itemPrice;
         ItemEntity itemEntity = new ItemEntity();
         itemEntity.setItemName(itemDTO.getItemName());
         itemEntity.setItemPrice(itemDTO.getItemPrice());
-        itemEntity.setItemImage(itemDTO.getItemImage());
+        itemEntity.setItemImage1(itemDTO.getItemImage1());
+        itemEntity.setItemImage2(itemDTO.getItemImage2());
+        itemEntity.setItemImage3(itemDTO.getItemImage3());
+        itemEntity.setItemImage4(itemDTO.getItemImage4());
         itemEntity.setItemVideo(itemDTO.getItemVideo());
         itemEntity.setItemContent1(itemDTO.getItemContent1());
         itemEntity.setItemContent2(itemDTO.getItemContent2());
