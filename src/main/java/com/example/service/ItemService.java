@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 @RequiredArgsConstructor
@@ -24,7 +25,7 @@ public class ItemService {
     public List<ItemDTO> findAllitem() {
         List<ItemEntity> itemEntityList = itemRepository.findAll();
         List<ItemDTO> itemDTOList = new ArrayList<>();
-        for (ItemEntity itemEntity: itemEntityList) {
+        for (ItemEntity itemEntity : itemEntityList) {
             itemDTOList.add(ItemDTO.toitemDTO(itemEntity));
             ItemDTO itemDTO = ItemDTO.toitemDTO(itemEntity);
             itemDTOList.add(itemDTO);
@@ -32,4 +33,14 @@ public class ItemService {
         return itemDTOList;
 
     }
-}
+
+   /* public ItemDTO findByitemName(String itemName) {
+        Optional<ItemEntity> optionalItemEntity = itemRepository.findByitemName(itemName);
+        if (optionalItemEntity.isPresent()) {
+            ItemEntity itemEntity = optionalItemEntity.get();
+            return ItemDTO.toitemDTO(itemEntity);
+        } else {
+            return null;
+        } */
+    }
+

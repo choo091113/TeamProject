@@ -221,9 +221,26 @@ input[type='checkbox']:checked+label:before {
   </div>
 
   <div class="text-center mt-5">
-    <button type="button" onclick="location.href='Proseller'"
-            class="btn col-8 py-2 btn-warning">버튼만 누르면 가입완료!</button>
+    <button type="button" id="submitBtn" onclick="location.href='Proseller'"
+            class="btn col-8 py-2 btn-warning" disabled>버튼만 누르면 가입완료!</button>
   </div>
+  <script>
+  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const submitBtn = document.getElementById('submitBtn');
+
+// 모든 체크박스에 대한 이벤트리스너 추가
+checkboxes.forEach(function(checkbox) {
+  checkbox.addEventListener('change', function() {
+    const checkedBoxes = document.querySelectorAll('input[type="checkbox"]:checked');
+    // 4개 이상 체크되어 있을 때 버튼 활성화
+    if (checkedBoxes.length >= 4) {
+      submitBtn.disabled = false;
+    } else {
+      submitBtn.disabled = true;
+    }
+  });
+});
+</script>
 </div>
 
 

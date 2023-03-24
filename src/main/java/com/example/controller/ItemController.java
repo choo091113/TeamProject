@@ -8,10 +8,7 @@ import com.example.service.ItemService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -36,12 +33,18 @@ public class ItemController {
         return "layout/Main";
     }
 
-    @GetMapping("layout/Clist2")
+    @GetMapping("layout/Clist")
     public String findAllitem(Model model) {
         List<ItemDTO> itemDTOList = itemService.findAllitem();
         // 어떠한 html로 가져갈 데이터가 있다면 model 사용
         model.addAttribute("itemList", itemDTOList);
-        return "layout/Clist2";
+        return "layout/Clist";
     }
 
-}
+  /*  @GetMapping("layout/itemDtl2/{itemImage1}")
+    public String findByitemName(@PathVariable String itemImage1, Model model) {
+        ItemDTO itemDTO = itemService.findByitemName(itemImage1);
+        model.addAttribute("item", itemDTO);
+        return "layout/itemDtl2"; */
+    }
+

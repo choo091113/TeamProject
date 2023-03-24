@@ -13,11 +13,6 @@ public class ThymeleafController {
 
     }
 
-    @GetMapping(value = "layout/Clist")
-    public String Clist() {
-        return "layout/Clist.html";
-    }
-
 
     @GetMapping(value = "layout/emailsign")
     public String emailsign() {
