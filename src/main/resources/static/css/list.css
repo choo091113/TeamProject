@@ -121,7 +121,7 @@
 	background: transparent;
 	color: black;
 	} */
-	.mcard {
+	 .mcard {
 	float: left;
 	margin-left:20px;
 	margin-right:15px;
@@ -140,6 +140,7 @@
 	transition: 0.5s ease;
 	cursor: pointer;
 	}
+
 
 	 .mcard-imageitem {
     	grid-area: image;

@@ -4,6 +4,7 @@ import com.example.dto.ItemDTO;
 import com.example.entity.ItemEntity;
 import com.example.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
+import oracle.ucp.common.FailoverStats;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
@@ -34,13 +35,15 @@ public class ItemService {
 
     }
 
-   /* public ItemDTO findByitemName(String itemName) {
-        Optional<ItemEntity> optionalItemEntity = itemRepository.findByitemName(itemName);
+
+    public ItemDTO findByitemPrice(int itemPrice) {
+        Optional<ItemEntity> optionalItemEntity = itemRepository.findByitemPrice(itemPrice);
         if (optionalItemEntity.isPresent()) {
-            ItemEntity itemEntity = optionalItemEntity.get();
-            return ItemDTO.toitemDTO(itemEntity);
+            return ItemDTO.toitemDTO(optionalItemEntity.get());
         } else {
             return null;
-        } */
-    }
+        }
+
+        }
+}
 

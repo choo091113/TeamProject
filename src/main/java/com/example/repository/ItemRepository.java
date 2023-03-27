@@ -8,5 +8,6 @@ import java.util.List;
 import java.util.Optional;
 
 public interface ItemRepository extends JpaRepository<ItemEntity, Long> {
-    Optional<ItemEntity> findByitemName(String itemName);
+
+    Optional<ItemEntity> findByitemPrice(int itemPrice);
 }

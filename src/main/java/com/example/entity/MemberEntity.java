@@ -13,6 +13,7 @@ import java.sql.Date;
 @Table(name = "member_table")
 public class MemberEntity {
 
+
     @Id
     @Column(unique = true) // unique 제약 조건 추가ㅣ
     private String memberEmail;
@@ -29,6 +30,9 @@ public class MemberEntity {
     @Column
     private String memberProfile;
 
+    @Column
+    private int memberCash;
+
     @Column(insertable = false, updatable = false, columnDefinition = "date default sysdate")
     private Date memberDate;
 
@@ -40,6 +44,7 @@ public class MemberEntity {
         memberEntity.setMemberType(memberDTO.getMemberType());
         memberEntity.setMemberProfile(memberDTO.getMemberProfile());
         memberEntity.setMemberDate(memberDTO.getMemberDate());
+        memberEntity.setMemberCash(memberDTO.getMemberCash());
         return memberEntity;
     }
 
@@ -51,6 +56,7 @@ public class MemberEntity {
         memberEntity.setMemberType(memberDTO.getMemberType());
         memberEntity.setMemberProfile(memberDTO.getMemberProfile());
         memberEntity.setMemberDate(memberDTO.getMemberDate());
+        memberEntity.setMemberCash(memberDTO.getMemberCash());
         return memberEntity;
     }
 }

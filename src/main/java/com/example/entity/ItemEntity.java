@@ -51,12 +51,10 @@ private int itemPrice;
     @Column
     private String itemCategory3;
 
-   /* @OneToOne
-    @JoinColumn(name = "memberName", referencedColumnName = "member")
-    private String memberName; */
-
     @Column(insertable = false, updatable = false, columnDefinition = "date default sysdate")
     private Date itemDate;
+
+
 
     public static ItemEntity toItemEntity(ItemDTO itemDTO) {
         ItemEntity itemEntity = new ItemEntity();
@@ -72,8 +70,9 @@ private int itemPrice;
         itemEntity.setItemCategory1(itemDTO.getItemCategory1());
         itemEntity.setItemCategory2(itemDTO.getItemCategory2());
         itemEntity.setItemCategory3(itemDTO.getItemCategory3());
-      //  itemEntity.setMemberName(itemDTO.getMemberName());
         itemEntity.setItemDate(itemDTO.getItemDate());
+
+
 
         return itemEntity;
 

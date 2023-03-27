@@ -18,6 +18,7 @@ public class MemberDTO {
     private String memberType;
     private String MemberProfile;
 
+    private int memberCash;
     private Date MemberDate;
 
 
@@ -29,6 +30,7 @@ public static MemberDTO tomemberDTO(MemberEntity memberEntity) {
     memberDTO.setMemberName(memberEntity.getMemberName());
     memberDTO.setMemberType(memberEntity.getMemberType());
     memberDTO.setMemberProfile(memberEntity.getMemberProfile());
+    memberDTO.setMemberCash(memberEntity.getMemberCash());
     return memberDTO;
 }
 }

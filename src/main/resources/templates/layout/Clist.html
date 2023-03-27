@@ -18,7 +18,7 @@
 
 <style type="text/css">
 .jumbotron {
-	background-image: url('../image/');
+	background-image: url('/image/yun00.png');
 	text-shadow: black 0.2em 0.2em 0.2em;
 	color: white;
 }
@@ -39,19 +39,27 @@
 			<div class = "mcard-stats"></div>
 		</div>
 
+
 		 <tr th:each="item: ${itemList}">
 
-			<div class = "mcard" style="cursor: pointer;" onclick = "location.href='itemDtl2/${item.itemImage1}'">
-				<div class = "mcard-itemimage">
-					<img th:src="${item.itemImage1}" alt="item image" style="width: 100%; height: auto; border-radius: 7px;">
-				</div>
-				<div class = "mcard-text">
-					<h4 class = "card-Name" th:text="${item.itemName}"></h4>
-					<p class = "card-Content1" th:text="${item.itemContent1}"></p>
-				</div>
-				<div class = "mcard-stats"></div>
-			</div>
-	</tr>
+			<!-- <div class = "mcard" style="cursor: pointer;" onclick = "location.href='@{|itemDtl2/${item.itemName}|'"> -->
+				 <div class="mcard" style="cursor: pointer;">
+					 <a th:href="@{|/itemDtl2/${item.itemPrice}|}">
+					 <div class="mcard-itemimage">
+						 <img th:src="${item.itemImage1}" alt="item image" style="width: 100%; height: 100%; border-radius: 7px;">
+					 </div>
+					 <div class="mcard-text">
+						 <h4 class="card-Name" th:text="${item.itemName}"></h4>
+						 <p class="card-Content1" th:text="${item.itemContent1}"></p>
+					 </div>
+					 <div class="mcard-stats"></div>
+				 </div>
+			 </a>
+
+
+
+
+		 </tr>
 
 	</div>
 </div>

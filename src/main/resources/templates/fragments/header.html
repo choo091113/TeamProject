@@ -13,6 +13,9 @@
 <body>
 <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 <script src="/js/bootstrap.js"></script>
+
+
+<div th:if="${#session} == null">
     <nav class="navbar navbar-default">
         <div class="container-fluid">
             <div class="navbar-header">
@@ -99,7 +102,6 @@
                         </div>
                         <button type="submit" class="btn btn-default">검색</button>
                     </form>
-                    <li><a href="myPage_cash">로그인 정보: <p th:text="${session.loginName}"></p></a></li>
                     <li class="dropdown"><a href="#" class="dropdown-toggle"
                                             data-toggle="dropdown" role="button" aria-haspopup="true"
                                             aria-expanded="false">접속하기<span class="caret"></span></a>
@@ -111,6 +113,100 @@
             </div>
         </div>
     </nav>
+</div>
 
+<div th:if="${#session} != null">
+    <nav class="navbar navbar-default">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed"
+                        data-toggle="collapse" data-target="#bs-example-navbar-collapse-1"
+                        aria-expanded="false">
+                    <span class="sr-only"></span> <span class="icon-bar"></span> <span
+                        class="icon-bar"></span> <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="Main">추몽</a>
+            </div>
+            <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                            data-toggle="dropdown" role="button" aria-haspopup="true"
+                                            aria-expanded="false">상품 카테고리<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <h4>
+                                &nbsp;&nbsp;&nbsp;드로잉<br>
+                            </h4>
+                            <li><a href="Clist">캐릭터</a></li>
+                            <li><a href="lecture?lectureName=Java">일러스트</a></li>
+                            <li><a href="lecture?lectureName=Android">캐리커쳐</a></li>
+                            <hr>
+                            <h4>
+                                &nbsp;&nbsp;&nbsp;크리에이티브<br>
+                            </h4>
+                            <li><a href="lecture?lectureName=C">성우</a></li>
+                            <li><a href="lecture?lectureName=Java">작곡</a></li>
+                            <li><a href="lecture?lectureName=Android">영상제작</a></li>
+                            <hr>
+                            <h4>
+                                &nbsp;&nbsp;&nbsp;프로그래밍<br>
+                            </h4>
+                            <li><a href="lecture?lectureName=C">게임제작</a></li>
+                            <li><a href="lecture?lectureName=Java">앱</a></li>
+                            <li><a href="lecture?lectureName=Android">홈페이지</a></li>
+                            <hr>
+                            <h4>
+                                &nbsp;&nbsp;&nbsp;번역,통역<br>
+                            </h4>
+                            <li><a href="lecture?lectureName=C">영어</a></li>
+                            <li><a href="lecture?lectureName=Java">일본어</a></li>
+                            <li><a href="lecture?lectureName=Android">중국어</a></li>
+                        </ul></li>
+                    <li class="dropdown"><a href="#" class="dropdown-toggle"
+                                            data-toggle="dropdown" role="button" aria-haspopup="true"
+                                            aria-expanded="false">과외 카테고리<span class="caret"></span></a>
+                        <ul class="dropdown-menu">
+                            <h4>
+                                &nbsp;&nbsp;&nbsp;드로잉<br>
+                            </h4>
+                            <li><a href="lecture?lectureName=C">캐릭터</a></li>
+                            <li><a href="lecture?lectureName=Java">일러스트</a></li>
+                            <li><a href="lecture?lectureName=Android">캐리커쳐</a></li>
+                            <hr>
+                            <h4>
+                                &nbsp;&nbsp;&nbsp;음악<br>
+                            </h4>
+                            <li><a href="lecture?lectureName=C">노래</a></li>
+                            <li><a href="lecture?lectureName=Java">악기연주</a></li>
+                            <li><a href="lecture?lectureName=Android">힙합</a></li>
+                            <hr>
+                            <h4>
+                                &nbsp;&nbsp;&nbsp;스포츠<br>
+                            </h4>
+                            <li><a href="lecture?lectureName=C">태권도</a></li>
+                            <li><a href="lecture?lectureName=Java">헬스</a></li>
+                            <li><a href="lecture?lectureName=Android">필라테스, 요가</a></li>
+                            <hr>
+                            <h4>
+                                &nbsp;&nbsp;&nbsp;언어<br>
+                            </h4>
+                            <li><a href="lecture?lectureName=C">영어</a></li>
+                            <li><a href="lecture?lectureName=Java">일본어</a></li>
+                            <li><a href="lecture?lectureName=Android">중국어</a></li>
+                        </ul></li>
+                    <li><a href="instructor">내 서비스</a></li>
+                </ul>
+                <ul class="nav navbar-nav navbar-right">
+                    <form class="navbar-form navbar-left">
+                        <div class="form-group">
+                            <input type="text" class="form-control" placeholder="내용을 입력하세요.">
+                        </div>
+                        <button type="submit" class="btn btn-default">검색</button>
+                    </form>
+                    <li><a href="myPage_cash">로그인 정보: <p th:text="${session.loginName}"></p></a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</div>
 </body>
 </html>
