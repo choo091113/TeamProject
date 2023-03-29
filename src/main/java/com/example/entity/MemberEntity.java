@@ -15,6 +15,10 @@ public class MemberEntity {
 
 
     @Id
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "id_sequence")
+    @SequenceGenerator(name = "id_sequence", sequenceName = "id_sequence", allocationSize = 1)
+    private Long id;
+
     @Column(unique = true) // unique 제약 조건 추가ㅣ
     private String memberEmail;
 

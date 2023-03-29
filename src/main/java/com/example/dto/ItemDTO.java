@@ -16,6 +16,7 @@ import java.sql.Date;
 
 public class ItemDTO {
 
+    private Long id;
     private String itemName;
     private int itemPrice;
     private String itemImage1;

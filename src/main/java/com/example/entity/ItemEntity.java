@@ -14,10 +14,14 @@ import java.sql.Date;
 @Table(name = "item_table")
 public class ItemEntity {
 
-
     @Id
-    @Column(unique = true)
+    @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_sequence")
+    @SequenceGenerator(name = "item_sequence", sequenceName = "item_sequence", allocationSize = 1)
+private Long id;
+
+    @Column
     private String itemName;
+
 
     @Column
 private int itemPrice;
@@ -58,6 +62,7 @@ private int itemPrice;
 
     public static ItemEntity toItemEntity(ItemDTO itemDTO) {
         ItemEntity itemEntity = new ItemEntity();
+      //  itemEntity.setMember(new MemberEntity(id));
         itemEntity.setItemName(itemDTO.getItemName());
         itemEntity.setItemPrice(itemDTO.getItemPrice());
         itemEntity.setItemImage1(itemDTO.getItemImage1());

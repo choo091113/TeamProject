@@ -72,6 +72,10 @@ return "layout/list";
         memberService.update(memberDTO);
 return "redirect:/layout/" + memberDTO.getMemberEmail();
 }
-
+@GetMapping("layout/logout")
+    public String logout(HttpSession session) {
+        session.invalidate();
+        return "layout/Main.html";
+}
 
 }

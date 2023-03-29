@@ -41,13 +41,13 @@ public class ItemController {
         return "layout/Clist";
     }
 
-    @GetMapping("layout/itemDtl2/{itemPrice}")
-    public String findByitemPrice(@PathVariable int itemPrice, Model model) {
-        ItemDTO itemDTO = itemService.findByitemPrice(itemPrice);
+   /* @GetMapping("layout/itemDtl2/{id}")
+    public String findByid(@PathVariable Long id, Model model) {
+        ItemDTO itemDTO = itemService.findByid(id);
         model.addAttribute("item", itemDTO);
-        return "layout/itemDtl2/{itemPrice}";
+        return "layout/itemDtl2/{id}";
     }
-
+*/
 
 }
 

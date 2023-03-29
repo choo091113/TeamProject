@@ -36,14 +36,14 @@ public class ItemService {
     }
 
 
-    public ItemDTO findByitemPrice(int itemPrice) {
-        Optional<ItemEntity> optionalItemEntity = itemRepository.findByitemPrice(itemPrice);
+   /* public ItemDTO findByid(Long id) {
+        Optional<ItemEntity> optionalItemEntity = itemRepository.findByid(id);
         if (optionalItemEntity.isPresent()) {
             return ItemDTO.toitemDTO(optionalItemEntity.get());
         } else {
             return null;
         }
 
-        }
+        } */
 }
 
