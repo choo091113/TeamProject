@@ -44,6 +44,7 @@ public class ItemDTO {
 
     public static ItemDTO toitemDTO(ItemEntity itemEntity) {
         ItemDTO itemDTO = new ItemDTO();
+        itemDTO.setId(itemEntity.getId());
         itemDTO.setItemName(itemEntity.getItemName());
         itemDTO.setItemPrice(itemEntity.getItemPrice());
         itemDTO.setItemImage1(itemEntity.getItemImage1());

@@ -7,6 +7,7 @@ import lombok.RequiredArgsConstructor;
 import oracle.ucp.common.FailoverStats;
 import org.springframework.stereotype.Service;
 
+import javax.swing.text.html.Option;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
@@ -35,15 +36,16 @@ public class ItemService {
 
     }
 
-
-   /* public ItemDTO findByid(Long id) {
-        Optional<ItemEntity> optionalItemEntity = itemRepository.findByid(id);
-        if (optionalItemEntity.isPresent()) {
+    public ItemDTO findById(Long id) {
+        Optional<ItemEntity> optionalItemEntity = itemRepository.findById(id);
+        if(optionalItemEntity.isPresent()) {
             return ItemDTO.toitemDTO(optionalItemEntity.get());
         } else {
             return null;
         }
+    }
 
-        } */
+
+
 }
 

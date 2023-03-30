@@ -62,7 +62,6 @@ private int itemPrice;
 
     public static ItemEntity toItemEntity(ItemDTO itemDTO) {
         ItemEntity itemEntity = new ItemEntity();
-      //  itemEntity.setMember(new MemberEntity(id));
         itemEntity.setItemName(itemDTO.getItemName());
         itemEntity.setItemPrice(itemDTO.getItemPrice());
         itemEntity.setItemImage1(itemDTO.getItemImage1());

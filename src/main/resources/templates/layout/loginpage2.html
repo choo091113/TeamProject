@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/html">
+<head>
+   <meta charset="utf-8" lang="ko" />
+   <meta name="viewport" content="width=device-width, initial-scale=1" />
+   <meta name="google-signin-client_id" content="184987540143-djp9dsh6p812549h2ihr8g6r69q2c5l3.apps.googleusercontent.com">
+   <title>추몽 페이지 모달</title>
+   <script type="text/javascript" src="https://static.nid.naver.com/js/naverLogin_implicit-1.0.3.js" charset="utf-8"></script>
+   <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+   <!-- Bootstrap CDN -->
+   <link
+           href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css"
+           rel="stylesheet"
+           integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD"
+           crossorigin="anonymous" />
+
+   <!--
+   alert(naver_id_login.getProfileData('email'));
+   alert(naver_id_login.getProfileData('nickname'));
+    -->
+   <style type="text/css">
+
+.modal-dialog {
+   max-width: 980px;
+}
+
+.modal-content {
+   /* width: 980px; */
+   /* align-items: end; */
+   /* background-image: url("resources/img/test2.jpg"); */
+
+}
+
+body {
+   background-image: url("resources/img/test2.jpg");
+   background-repeat: no-repeat;
+   background-size: 50% 100%;
+}
+
+.login-wrap {
+   margin-left: 50%;
+   width: 50%;
+   height: 100%;
+   display: flex;
+   background-color: #fff;
+}
+
+</style>
+   <style>
+    #naver_id_login img {
+        width: calc(100% - 3cm);
+        height: calc(100%);
+    }
+</style>
+
+</head>
+<body style="width: 100vw; height: 100vh; display: flex">
+
+<!-- Bootstrap CDN -->
+<script
+        src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN"
+        crossorigin="anonymous"></script>
+<script src="https://apis.google.com/js/platform.js" async defer></script>
+<script src="https://developers.kakao.com/sdk/js/kakao.js"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/ko_KR/sdk.js#xfbml=1&version=v10.0&appId=1588150011384568" nonce="SiOBIhLG"></script>
+
+
+
+
+
+<!-- Button trigger modal -->
+<div class="login-wrap">
+   <!-- Modal -->
+   <div class="modal-dialog px-auto my-auto" role="document">
+      <div class="modal-content align-items-center justify-content-center">
+         <div class="modal-content row mx-auto" >
+            <div style="width: 380px; background-color: #fff">
+               <!-- Modal Body -->
+               <form action = "loginpage" method = "post">
+                  <div class="mx-3">
+                     <h1>로그인</h1>
+                  </div>
+
+                  <div class="modal-body">
+
+                     <input type="text" class="form-control p-3" name="memberEmail"
+                            placeholder="이메일(아이디)을 입력해 주세요." />
+
+                     <input type="password"
+                            class="form-control p-3 mt-3" name="memberPassword"
+                            placeholder="비밀번호를 입력해 주세요." />
+
+                     <button type="submit" id="loginBtn"
+                             class="col-12 mt-3 btn btn-warning p-3">
+                        <b>로그인</b>
+                     </button>
+
+                     <div class="row m-0 mt-3">
+                        <div class="form-check col">
+                           <input class="form-check-input" type="checkbox" value=""
+                                  id="keepLogin" /> <label class="form-check-label"
+                                                           for="keepLogin"><b>로그인 유지</b></label>
+                        </div>
+                        <div class="col-auto"><a href="find">아이디·비밀번호 찾기</a></div>
+
+                     </div>
+
+                     <div class="text-center mt-3 mb-1">
+                        <b>SNS계정으로 간편하게 로그인하세요.</b>
+                     </div>
+                     <div class="row my-3 mx-0">
+                        <div class="col-12  btn" id="naver_id_login" ></div>
+                        <div class="col-12  btn">
+                           <a id="kakao-login-btn"></a>
+                           <a href="http://developers.kakao.com/logout"></a>
+                        </div>
+                        <div class="col-12 btn">
+                           <ul>
+                              <li onclick="fnFbCustomLogin();">
+                                 <a href="javascript:void(0)">
+                                    <span>Login with Facebook</span>
+                                 </a>
+                              </li>
+                           </ul>
+                        </div>
+                        <div class="col-12  mx-5 btn">
+                           <div class="g-signin2" data-onsuccess="onSignIn" style="width: 222px; height: 48.99px;"></div>
+                        </div>
+                     </div>
+                     <br>
+                  </div>
+               </form>
+
+               <hr />
+
+               <div>추몽의 회원이 되시면</div>
+               <div>
+                  <b>3000만원 할인혜택</b>을 드립니다.
+               </div>
+
+               <div class="row mx-0 mt-4">
+                  <button type="button" class="btn btn-outline-primary p-3"
+                          onclick="location.href='signpage'">추몽 회원가입 하기</button>
+               </div>
+
+               </form>
+            </div>
+
+            </form>
+         </div>
+      </div>
+   </div>
+</div>
+</div>
+</form>
+
+
+<!— Javascript —>
+<script lang="text/javascript"></script>
+<script type="text/javascript">
+     var naver_id_login = new naver_id_login("LAcIw6wmaWVVHwPob_pG", "http://localhost/layout/logincallback.html");
+     var state = naver_id_login.getUniqState();
+     naver_id_login.setButton("green", 3,40);
+     naver_id_login.setDomain("http://localhost/layout/loginpage.html");
+     naver_id_login.setState(state);
+     naver_id_login.setPopup();
+     naver_id_login.init_naver_id_login();
+  </script>
+<script type='text/javascript'>
+      //<![CDATA[
+        // 사용할 앱의 JavaScript 키를 설정해 주세요.
+        Kakao.init('YOUR APP KEY');
+        // 카카오 로그인 버튼을 생성합니다.
+        Kakao.Auth.createLoginButton({
+          container: '#kakao-login-btn',
+          success: function(authObj) {
+            alert(JSON.stringify(authObj));
+          },
+          fail: function(err) {
+             alert(JSON.stringify(err));
+          }
+        });
+      //]]>
+    </script>
+
+
+
+</form>
+</body>
+</html>
