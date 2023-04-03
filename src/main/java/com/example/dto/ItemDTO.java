@@ -13,7 +13,6 @@ import java.sql.Date;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-
 public class ItemDTO {
 
     private Long id;
@@ -39,8 +38,6 @@ public class ItemDTO {
     private String itemCategory3;
 
     private Date itemDate;
-
-
 
     public static ItemDTO toitemDTO(ItemEntity itemEntity) {
         ItemDTO itemDTO = new ItemDTO();

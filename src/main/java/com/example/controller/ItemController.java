@@ -47,7 +47,21 @@ public class ItemController {
         model.addAttribute("item", itemDTO);
         return "layout/itemDtl";
     }
-
+    @GetMapping("layout/Slist")
+    public String search(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
+        if (keyword == null || keyword.trim().isEmpty()) {
+            List<ItemDTO> items = itemService.findAllitem();
+            // If keyword is null or empty, display an error message
+            model.addAttribute("error", "Please enter a search keyword");
+            return "layout/Slist";
+        } else {
+            // Otherwise, perform the search and display the results
+            List<ItemDTO> items = itemService.itemSearchList(keyword);
+            model.addAttribute("items", items);
+            model.addAttribute("keyword", keyword);
+            return "layout/Slist";
+        }
+    }
 
 }
 

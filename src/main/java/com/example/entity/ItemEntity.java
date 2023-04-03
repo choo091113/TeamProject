@@ -17,14 +17,14 @@ public class ItemEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_sequence")
     @SequenceGenerator(name = "item_sequence", sequenceName = "item_sequence", allocationSize = 1)
-private Long id;
+    private Long id;
 
     @Column
     private String itemName;
 
 
     @Column
-private int itemPrice;
+    private int itemPrice;
 
     @Column
     private String itemImage1;
@@ -46,7 +46,7 @@ private int itemPrice;
     @Column
     private String itemContent2;
 
-@Column
+    @Column
     private String itemCategory1;
 
     @Column
@@ -80,5 +80,5 @@ private int itemPrice;
 
         return itemEntity;
 
-}
+    }
 }

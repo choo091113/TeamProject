@@ -22,7 +22,7 @@
         <div class="myPage_left">
             <div class="myPage_left_profile">
                 <div>
-                    <img src=" /image/icecream00.jpeg" alt="" class="myPage_left_Image">
+                    <img th:src="${member.MemberProfile}" alt="item image" class="myPage_left_Image">
                 </div>
                 <div class="myPage_left_board1">
                     <h3><span class="name" th:text = "${member.MemberName}"></span></h3>

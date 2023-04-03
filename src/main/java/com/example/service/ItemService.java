@@ -44,7 +44,14 @@ public class ItemService {
             return null;
         }
     }
-
+    public List<ItemDTO> itemSearchList(String searchKeyword) {
+        List<ItemEntity> itemEntityList = itemRepository.findByItemNameContaining(searchKeyword);
+        List<ItemDTO> itemDTOList = new ArrayList<>();
+        for (ItemEntity itemEntity : itemEntityList) {
+            itemDTOList.add(ItemDTO.toitemDTO(itemEntity));
+        }
+        return itemDTOList;
+    }
 
 
 }

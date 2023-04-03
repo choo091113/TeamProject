@@ -101,9 +101,5 @@ public class ThymeleafController {
         return "layout/signPro.html";
     }
 
-    @GetMapping(value = "layout/Slist")
-    public String Slist() {
-        return "layout/Slist.html";
-    }
 }
 
