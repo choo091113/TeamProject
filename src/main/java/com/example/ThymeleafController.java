@@ -34,10 +34,6 @@ public class ThymeleafController {
         return "layout/instructor.html";
     }
 
-    @GetMapping(value = "layout/itemDtl")
-    public String itemDtl() {
-        return "layout/itemDtl.html";
-    }
 
     @GetMapping(value = "layout/lecture")
     public String lecture() {

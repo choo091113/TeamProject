@@ -15,6 +15,7 @@ import java.util.Optional;
 
 public class MemberService {
     private final MemberRepository memberRepository;
+
     public void save(MemberDTO memberDTO) {
         // repository의 save 메서드 호출 (entity 객체를 넘겨줘야함)
         // 1. dto -> entity
@@ -37,11 +38,11 @@ public class MemberService {
             if (memberEntity.getMemberPassword().equals(memberDTO.getMemberPassword())) {
                 // 비밀번호가 일치하다 (로그인 성공)
                 // entity -> dto 변환 후 리턴
-MemberDTO dto = MemberDTO.tomemberDTO(memberEntity);
-return dto;
+                MemberDTO dto = MemberDTO.tomemberDTO(memberEntity);
+                return dto;
             } else {
                 // 비밀번호 틀림 (로그인 실패)
-                 return null;
+                return null;
             }
         } else {
             // 조회 결과 없음( 이메일 없다 )
@@ -50,12 +51,12 @@ return dto;
     }
 
     public MemberDTO updateForm(String myName) {
-     Optional<MemberEntity> optionalMemberEntity = memberRepository.findByMemberName(myName);
-     if(optionalMemberEntity.isPresent()) {
-         return MemberDTO.tomemberDTO(optionalMemberEntity.get());
-     } else {
-         return null;
-     }
+        Optional<MemberEntity> optionalMemberEntity = memberRepository.findByMemberName(myName);
+        if (optionalMemberEntity.isPresent()) {
+            return MemberDTO.tomemberDTO(optionalMemberEntity.get());
+        } else {
+            return null;
+        }
     }
 
     public void update(MemberDTO memberDTO) {
@@ -65,12 +66,21 @@ return dto;
 
     public List<MemberDTO> findAll() {
         List<MemberEntity> memberEntityList = memberRepository.findAll();
-List<MemberDTO> memberDTOList = new ArrayList<>();
-for (MemberEntity memberEntity: memberEntityList) {
-    memberDTOList.add(MemberDTO.tomemberDTO(memberEntity));
-    MemberDTO memberDTO = MemberDTO.tomemberDTO(memberEntity);
-    memberDTOList.add(memberDTO);
-}
-return memberDTOList;
+        List<MemberDTO> memberDTOList = new ArrayList<>();
+        for (MemberEntity memberEntity : memberEntityList) {
+            memberDTOList.add(MemberDTO.tomemberDTO(memberEntity));
+            MemberDTO memberDTO = MemberDTO.tomemberDTO(memberEntity);
+            memberDTOList.add(memberDTO);
+        }
+        return memberDTOList;
+    }
+
+    public MemberDTO findById(Long id) {
+        Optional<MemberEntity> optionalMemberEntity = memberRepository.findById(id);
+        if (optionalMemberEntity.isPresent()) {
+            return MemberDTO.tomemberDTO(optionalMemberEntity.get());
+        } else {
+            return null;
+        }
     }
 }

@@ -14,6 +14,7 @@
 </head>
 
 <body>
+
 <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
 <main class="myPage_theme">
@@ -24,7 +25,7 @@
                     <img src=" /image/icecream00.jpeg" alt="" class="myPage_left_Image">
                 </div>
                 <div class="myPage_left_board1">
-                    <h3>초코</h3>
+                    <h3><span class="name" th:text = "${member.MemberName}"></span></h3>
                     <a href="#">
                         <img src=" /image/cogwheel.png" alt="" class="myPage_left_cogwheel">
                     </a>
@@ -48,7 +49,7 @@
                 <div>
                     <span>보유캐시</span><br>
                     <div class="cash_091557">
-                    <span>155,000</span>
+                    <span class="name" th:text = "${member.MemberCash}"></span>
                     </div>
                 </div>
                 <div>

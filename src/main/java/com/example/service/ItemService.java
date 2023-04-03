@@ -29,8 +29,8 @@ public class ItemService {
         List<ItemDTO> itemDTOList = new ArrayList<>();
         for (ItemEntity itemEntity : itemEntityList) {
             itemDTOList.add(ItemDTO.toitemDTO(itemEntity));
-            ItemDTO itemDTO = ItemDTO.toitemDTO(itemEntity);
-            itemDTOList.add(itemDTO);
+         //   ItemDTO itemDTO = ItemDTO.toitemDTO(itemEntity);
+          //  itemDTOList.add(itemDTO);
         }
         return itemDTOList;
 

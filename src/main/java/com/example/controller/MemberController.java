@@ -1,5 +1,6 @@
 package com.example.controller;
 
+import com.example.dto.ItemDTO;
 import com.example.dto.MemberDTO;
 import com.example.service.MemberService;
 import lombok.RequiredArgsConstructor;
@@ -7,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import javax.servlet.http.HttpSession;
@@ -44,6 +46,7 @@ public class MemberController {
         if (loginResult != null) {
             // 로그인 성공
             session.setAttribute("loginName", loginResult.getMemberName());
+            session.setAttribute("loginid", loginResult.getId());
             return "layout/Main";
         } else {
             // 로그인 실패
@@ -60,22 +63,15 @@ return "layout/list";
         }
 
 
-    @GetMapping("layout/myPage_update")
-    public String updateForm(HttpSession session, Model model) {
-        String myName = (String) session.getAttribute("loginName");
-        MemberDTO memberDTO = memberService.updateForm(myName);
-        model.addAttribute("updateMember", memberDTO);
-        return "myPage_update";
-    }
-@PostMapping("layout/myPage_update")
-    public String update(@ModelAttribute MemberDTO memberDTO) {
-        memberService.update(memberDTO);
-return "redirect:/layout/" + memberDTO.getMemberEmail();
-}
 @GetMapping("layout/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "layout/Main.html";
 }
-
+    @GetMapping("layout/myPage_cash/{id}")
+    public String findById(@PathVariable Long id, Model model) {
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("member", memberDTO);
+        return "layout/myPage_cash";
+    }
 }
