@@ -41,6 +41,14 @@ public class ItemController {
         return "layout/Clist";
     }
 
+    @GetMapping("layout/Main")
+    public String findTop3ByOrderByIdDesc(Model model) {
+        List<ItemDTO> itemDTOList = itemService.findTop3ByOrderByIdDesc();
+        // 어떠한 html로 가져갈 데이터가 있다면 model 사용
+        model.addAttribute("itemList", itemDTOList);
+        return "layout/Main";
+    }
+
     @GetMapping("layout/itemDtl/{id}")
     public String findByid(@PathVariable Long id, Model model) {
         ItemDTO itemDTO = itemService.findById(id);

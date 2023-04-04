@@ -7,11 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping(value = "/")
 public class ThymeleafController {
-    @GetMapping(value = "layout/Main")
-    public String Main() {
-        return "layout/Main.html";
 
-    }
+
 
 
     @GetMapping(value = "layout/emailsign")

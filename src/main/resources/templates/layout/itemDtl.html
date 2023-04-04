@@ -13,6 +13,9 @@
 <body>
 <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
+<h3><a href="Main" class="" th:text="${item.itemCategory2}" ></a> >
+<a href="instructor" class="" th:text="${item.itemCategory3}"></a></h3>
+
 <div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1280px; height: 720px; margin: 0 auto;" th:src="${item.itemVideo}"></iframe>
 </div>
@@ -21,9 +24,6 @@
 <section class="product_info">
 	<h2 class="hidden">product_info</h2>
 	<div class="container">
-		<a href="Main" class="" th:text="${item.itemCategory2}" ></a>
-		<span class="">></span>
-		<a href="instructor" class="" th:text="${item.itemCategory3}"></a>
 		<div class="row">
 			<div class="product_pictures col-md-7">
 				<img th:src="${item.itemImage1}" alt="cat" class="big_img" id="bigImg" style="width: 580px; height: 440px; margin-left: 17px;">

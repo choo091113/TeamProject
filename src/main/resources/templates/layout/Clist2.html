@@ -41,23 +41,23 @@
 		</div>
 
 
-		 <tr th:each="item: ${itemList}">
+		<tr th:each="item: ${itemList}">
 
-				 <div class="mcard" style="cursor: pointer;">
-					 <a th:href="@{|itemDtl/${item.id}|}">
-					 <div class="mcard-itemimage">
-						 <img th:src="${item.itemImage1}" alt="item image" style="width: 250px; height: 160px; border-top-left-radius: 7px; border-top-right-radius: 7px;">
+			<div class="mcard" style="cursor: pointer;">
+				<a th:href="@{|itemDtl/${item.id}|}">
+					<div class="mcard-itemimage">
+						<img th:src="${item.itemImage1}" alt="item image" style="width: 250px; height: 160px; border-top-left-radius: 7px; border-top-right-radius: 7px;">
 
-					 </div>
-					 <div class="mcard-text">
-						 <h4 class="card-Name" th:text="${item.itemName}"></h4>
-						 <p class="card-Content1" th:text="${item.itemContent1}"></p>
-					 </div>
-					 <div class="mcard-stats"></div>
-				 </div>
-			 </a>
+					</div>
+					<div class="mcard-text">
+						<h4 class="card-Name" th:text="${item.itemName}"></h4>
+						<p class="card-Content1" th:text="${item.itemContent1}"></p>
+					</div>
+					<div class="mcard-stats"></div>
+			</div>
+			</a>
 
-		 </tr>
+		</tr>
 
 	</div>
 </div>

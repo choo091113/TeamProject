@@ -5,6 +5,8 @@ import com.example.entity.ItemEntity;
 import com.example.repository.ItemRepository;
 import lombok.RequiredArgsConstructor;
 import oracle.ucp.common.FailoverStats;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.swing.text.html.Option;
@@ -35,6 +37,14 @@ public class ItemService {
         return itemDTOList;
 
     }
+    public List<ItemDTO> findTop3ByOrderByIdDesc() {
+        List<ItemEntity> itemEntityList = itemRepository.findTop3ByOrderByIdDesc();
+        List<ItemDTO> itemDTOList = new ArrayList<>();
+        for (ItemEntity itemEntity : itemEntityList) {
+            itemDTOList.add(ItemDTO.toitemDTO(itemEntity));
+        }
+        return itemDTOList;
+    }
 
     public ItemDTO findById(Long id) {
         Optional<ItemEntity> optionalItemEntity = itemRepository.findById(id);
@@ -52,7 +62,6 @@ public class ItemService {
         }
         return itemDTOList;
     }
-
 
 }
 

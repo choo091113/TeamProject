@@ -13,4 +13,6 @@ public interface ItemRepository extends JpaRepository<ItemEntity, Long> {
 
       Optional<ItemEntity> findByid(Long id);
     List<ItemEntity> findByItemNameContaining(String keyword);
+
+    List<ItemEntity> findTop3ByOrderByIdDesc();
 }
