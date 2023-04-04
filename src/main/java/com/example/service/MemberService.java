@@ -50,7 +50,7 @@ public class MemberService {
         }
     }
 
-    public MemberDTO updateForm(String myName) {
+  /*  public MemberDTO updateForm(String myName) {
         Optional<MemberEntity> optionalMemberEntity = memberRepository.findByMemberName(myName);
         if (optionalMemberEntity.isPresent()) {
             return MemberDTO.tomemberDTO(optionalMemberEntity.get());
@@ -59,10 +59,10 @@ public class MemberService {
         }
     }
 
-    public void update(MemberDTO memberDTO) {
+   public void update(MemberDTO memberDTO) {
         memberRepository.save(MemberEntity.toUpdateMemberEntity(memberDTO));
 
-    }
+    } */
 
     public List<MemberDTO> findAll() {
         List<MemberEntity> memberEntityList = memberRepository.findAll();
@@ -81,6 +81,34 @@ public class MemberService {
             return MemberDTO.tomemberDTO(optionalMemberEntity.get());
         } else {
             return null;
+        }
+    }
+
+    public MemberDTO updateForm(String myEmail) {
+        Optional<MemberEntity> optionalMemberEntity = memberRepository.findByMemberEmail(myEmail);
+        if (optionalMemberEntity.isPresent()) {
+            return MemberDTO.tomemberDTO(optionalMemberEntity.get());
+        } else {
+            return null;
+        }
+    }
+
+    public void update(MemberDTO memberDTO) {
+        memberRepository.save(MemberEntity.toUpdateMemberEntity(memberDTO));
+    }
+
+    public void deleteById(Long id) {
+        memberRepository.deleteById(id);
+    }
+
+    public String emailCheck(String memberEmail) {
+        Optional<MemberEntity> byMemberEmail = memberRepository.findByMemberEmail(memberEmail);
+        if (byMemberEmail.isPresent()) {
+            // 조회결과가 있다 -> 사용할 수 없다.
+            return null;
+        } else {
+            // 조회결과가 없다 -> 사용할 수 있다.
+            return "ok";
         }
     }
 }

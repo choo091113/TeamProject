@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" initial-scale="1">
+    <title>추몽</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
+    <link rel="stylesheet" href=" /css/myProfile.css">
+<body>
+<th:block th:replace="fragments/header :: headerFragment"></th:block>
+
+<main style="background: #fff;">
+    <form action="/layout/myProfile_update" method="post">
+        <div class="itemform_211302">
+            <div class="itemform_211306">
+                <div style="display: flex; width: 100%;">
+                    <!-- 이미지 -->
+                    <img src="/image/icecream00.jpeg" class="myprofile_03221433" style="margin-bottom: 10px;" name="memberImg">
+                    <div style="margin-top: 30px; margin-left: 40px; width: 100%;">
+                        <label for="file">
+                            <div class="myprofile_03221440"
+                                 style="text-align: center; padding-top: 4px; margin-bottom: 8px;" onclick="ChnImg()">
+                                프로필 변경
+                            </div>
+                        </label>
+                        <input type="file" name="file" id="file" style="display:none;">
+                        <script>
+                            function ChnImg() {
+                            const input = document.getElementById('file');
+                            const img = document.querySelector('.myprofile_03221433');
+
+                            input.addEventListener('change', function() {
+                                const file = input.files[0];
+                                const reader = new FileReader();
+
+                                reader.addEventListener("load", function () {
+                                img.src = reader.result;
+                                }, false);
+
+                                if (file) {
+                                    reader.readAsDataURL(file)
+                                }
+                            });
+                        }
+                        </script>
+
+                        <input type="hidden" th:value="${updateMember.id}" name="id"><br>
+                        <div style="margin-top: 30px; amrgin-left: 40px; width:100%">
+                            <div class="myprofile_03221443">
+                                <span class="keytitle">닉네임</span>
+                                <input type="text" th:value="${updateMember.memberName}" name="memberName"
+                                       style="border: none; width:80%"><br>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="itemform_211316">
+                    <span class="keytitle">자기소개</span>
+                    <textarea th:value="${updateMember.memberProfile}" th:text="${updateMember.memberProfile}"
+                              name="memberProfile"></textarea>
+                </div>
+                <div class="itemform_211316">
+                    <span class="keytitle">이메일</span>
+                    <input type="text" th:value="${updateMember.memberEmail}" name="memberEmail" readonly><br>
+                </div>
+                <div class="itemform_211316">
+                    <span class="keytitle">비밀번호 변경</span>
+                    <input type="text" th:value="${updateMember.memberPassword}" name="memberPassword"><br>
+                </div>
+                <div style="display: flex; margin: auto;">
+                    <input type="submit" value="정보수정" class="savebutton">
+                </div>
+            </div>
+        </div>
+    </form>
+</main>
+
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+</body>
+</html>

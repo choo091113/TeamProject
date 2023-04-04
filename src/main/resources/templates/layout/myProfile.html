@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width" , initial-scale="1">
+    <title>추몽</title>
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src=" /js/bootstrap.js"></script>
+    <link rel="stylesheet" href=" /css/myProfile.css">
+</head>
+
+<body>
+<th:block th:replace="fragments/header :: headerFragment"></th:block>
+
+<main style="background: #fff;">
+    <div class="itemform_211302">
+        <div class="itemform_211306">
+            <div style="display: flex; width: 100%;">
+                <img src="/image/icecream00.jpeg" class="myprofile_03221433" style="margin-bottom: 10px;" name="memberImg">
+                <div style="margin-top: 30px; margin-left: 40px; width: 100%;">
+                    <div class="myprofile_03221443">
+                        <span class="keytitle">닉네임</span>
+                        <input type="text" th:value="${member.memberName}" name="memberName"
+                               style="border: none; width:80%" readonly>
+                    </div>
+                </div>
+            </div>
+            <div class="itemform_211316">
+                <span class="keytitle">자기소개</span>
+                <textarea th:value="${member.memberProfile}" th:text="${member.memberProfile}" name="memberProfile"
+                          readonly></textarea>
+            </div>
+            <div class="itemform_211316">
+                <span class="keytitle">이메일</span>
+                <input type="text" th:value="${member.memberEmail}" name="memberEmail" readonly>
+            </div>
+            <div class="itemform_211316">
+                <span class="keytitle">현재 비밀번호</span>
+                <input type="text" th:value="${member.memberPassword}" name="memberPassword" readonly>
+            </div>
+            <div style="display: flex; justify-content: space-between">
+                <!-- 삭제 버튼 클릭시 모달 호출 -->
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#deleteModal">아이디 삭제</button>
+                <button type="button" class="savebutton" onclick="location.href='myProfile_update'">회원정보변경</button>
+            </div>
+        </div>
+    </div>
+</main>
+
+<!-- 삭제 모달 -->
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="deleteModalLabel">아이디 삭제</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>정말 삭제하시겠습니까?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+                <a th:href="@{|/layout/delete/${member.id}|}">
+                    <button type="button" class="btn btn-primary">확인</button>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
+</body>
+</html>
