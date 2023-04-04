@@ -32,7 +32,7 @@
         <h1><b th:text="${keyword} + ' 검색결과입니다.'"></b></h1>
         <tr th:each="item: ${items}">
             <div class="mcard" style="cursor: pointer;">
-                <a th:href="@{|${item.id}|}">
+                <a th:href="@{|itemDtl/${item.id}|}">
                     <div class="mcard-itemimage">
                         <img th:src="${item.itemImage1}" alt="item image"
                              style="width: 100%; height: 100%; border-radius: 7px;">
