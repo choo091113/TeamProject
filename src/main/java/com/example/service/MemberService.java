@@ -93,7 +93,7 @@ public class MemberService {
         }
     }
 
-    public void update(MemberDTO memberDTO) {
+    public void update(Long id, MemberDTO memberDTO) {
         memberRepository.save(MemberEntity.toUpdateMemberEntity(memberDTO));
     }
 

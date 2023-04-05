@@ -29,7 +29,7 @@ public static MemberDTO tomemberDTO(MemberEntity memberEntity) {
     MemberDTO memberDTO = new MemberDTO();
     memberDTO.setId(memberEntity.getId());
     memberDTO.setMemberEmail(memberEntity.getMemberEmail());
-    memberDTO.setMemberPassword(memberDTO.getMemberPassword());
+    memberDTO.setMemberPassword(memberEntity.getMemberPassword());
     memberDTO.setMemberName(memberEntity.getMemberName());
     memberDTO.setMemberType(memberEntity.getMemberType());
     memberDTO.setMemberProfile(memberEntity.getMemberProfile());

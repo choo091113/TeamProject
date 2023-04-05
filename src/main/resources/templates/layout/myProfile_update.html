@@ -6,14 +6,15 @@
     <title>추몽</title>
     <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
     <script src="/js/bootstrap.js"></script>
-    <link rel="stylesheet" href=" /css/myProfile.css">
+    <link rel="stylesheet" href="/css/myProfile.css">
 <body>
 <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
 <main style="background: #fff;">
-    <form action="/layout/myProfile_update" method="post">
-        <div class="itemform_211302">
-            <div class="itemform_211306">
+    <form th:action="@{/myProfile_update/__${updateMember.id}__}" method="post">
+
+    <div class="itemform_2102">
+            <div class="itemform_21311306">
                 <div style="display: flex; width: 100%;">
                     <!-- 이미지 -->
                     <img src="/image/icecream00.jpeg" class="myprofile_03221433" style="margin-bottom: 10px;" name="memberImg">
@@ -45,7 +46,7 @@
                         }
                         </script>
 
-                        <input type="hidden" th:value="${updateMember.id}" name="id"><br>
+                        <br>
                         <div style="margin-top: 30px; amrgin-left: 40px; width:100%">
                             <div class="myprofile_03221443">
                                 <span class="keytitle">닉네임</span>
@@ -56,10 +57,10 @@
                     </div>
                 </div>
 
-                <div class="itemform_211316">
+             <!--   <div class="itemform_211316">
                     <span class="keytitle">자기소개</span>
                     <textarea th:value="${updateMember.memberProfile}" th:text="${updateMember.memberProfile}"
-                              name="memberProfile"></textarea>
+                              name="memberProfile"></textarea> -->
                 </div>
                 <div class="itemform_211316">
                     <span class="keytitle">이메일</span>

@@ -32,13 +32,21 @@
                 <button class="expert_change_btn" onclick="location.href='seller_orderList'">전문가 전환</button>
 
                 <hr>
-                <button class="myPage_menuButton" onclick="location.href='myPage_orderList'">구매 관리</button>
+                <a th:href="@{/myPage_orderList/{loginid}(loginid=${session.loginid})}">
+                    <button class="myPage_menuButton">구매 관리</button>
+                </a>
                 <br>
-                <button class="myPage_menuButton" onclick="location.href='myPage_charges'">거래 내역</button>
+                <a th:href="@{/myPage_charges/{loginid}(loginid=${session.loginid})}">
+                    <button class="myPage_menuButton">거래 내역</button>
+                </a>
                 <br>
-                <button class="myPage_menuButton" onclick="location.href='myPage_cash'">마이 캐시</button>
+                <a th:href="@{/myPage_cash/{loginid}(loginid=${session.loginid})}">
+                    <button class="myPage_menuButton">마이 캐시</button>
+                </a>
                 <br>
-                <button class="myPage_menuButtonClick" onclick="location.href='myPage_like'">찜</button>
+                <a th:href="@{/myPage_like/{loginid}(loginid=${session.loginid})}">
+                    <button class="myPage_menuButton">찜</button>
+                </a>
             </div>
         </div>
 

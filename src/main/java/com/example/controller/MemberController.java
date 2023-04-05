@@ -8,6 +8,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.List;
 
@@ -65,12 +66,54 @@ return "layout/list";
         session.invalidate();
         return "layout/Main.html";
 }
-    @GetMapping("layout/myPage_cash/{id}")
-    public String findById(@PathVariable Long id, Model model) {
+    @GetMapping("myPage_cash/{id}")
+    public String myPage_cash(@PathVariable Long id, Model model) {
         MemberDTO memberDTO = memberService.findById(id);
         model.addAttribute("member", memberDTO);
         return "layout/myPage_cash";
     }
+
+    @GetMapping("/myPage_like/{id}")
+    public String myPage_like(@PathVariable Long id, Model model) {
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("member", memberDTO);
+        return "layout/myPage_like";
+    }
+
+    @GetMapping("/myPage_charges/{id}")
+    public String myPage_charges(@PathVariable Long id, Model model) {
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("member", memberDTO);
+        return "layout/myPage_charges";
+    }
+
+    @GetMapping("/myPage_orderList/{id}")
+    public String myPage_orderList(@PathVariable Long id, Model model) {
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("member", memberDTO);
+        return "layout/myPage_orderList";
+    }
+
+    @GetMapping("/myPage_update/{id}")
+    public String myPage_update(@PathVariable Long id, Model model) {
+        MemberDTO memberDTO = memberService.findById(id);
+        model.addAttribute("member", memberDTO);
+        return "layout/myPage_update";
+    }
+
+    @GetMapping("/myProfile_update/{id}")
+    public String myProfile_update(HttpServletRequest request, Model model) {
+        MemberDTO memberDTO = memberService.findById(Long.parseLong(request.getParameter("id")));
+        model.addAttribute("updateMember", memberDTO);
+        return "layout/myProfile_update";
+    }
+
+    @PostMapping("/myProfile_update")
+    public String myProfile_update(MemberDTO memberDTO) {
+        memberService.update(memberDTO.getId(), memberDTO);
+        return "redirect:/myProfile";
+    }
+
     @PostMapping("/layout/email-check")
     public @ResponseBody String emailCheck(@RequestParam("memberEmail") String memberEmail) {
         System.out.println("memberEmail = " + memberEmail);
