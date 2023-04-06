@@ -44,11 +44,11 @@
 					<h3>회원 정보</h3>
 						<div class="board_block_form">
 							<span>이름</span>
-							<p>최혜빈</p>
+							<p th:text="${session.loginName}"></p>
 						</div>
 					<div class="board_block_form">
 						<span>이메일</span>
-						<p>h_bee99@naver.com</p>
+						<p th:text="${session.loginEmail}"></p>
 					</div>
 					<div class="board_block_form">
 						<span>전화번호</span>
