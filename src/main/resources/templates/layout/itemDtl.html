@@ -28,10 +28,14 @@
 			<div class="product_pictures col-md-7">
 				<img th:src="${item.itemImage1}" alt="cat" class="big_img" id="bigImg" style="width: 580px; height: 440px; margin-left: 17px;">
 				<ul class="thumb_img">
-					<li class="active"><img th:src="${item.itemImage1}" data-target="cote_big_1" alt="" class="thumb" style="width: 140px; height: 90px;"></li>
-					<li><img th:src="${item.itemImage2}" data-target="cote_big_2" alt="" class="thumb" style="width: 140px; height: 90px;"></li>
-					<li><img th:src="${item.itemImage3}" data-target="cote_big_3" alt="" class="thumb" style="width: 140px; height: 90px;"></li>
-					<li><img th:src="${item.itemImage4}" data-target="cote_big_4" alt="" class="thumb" style="width: 140px; height: 90px;"></li>
+					<a data-target="#modal1" data-toggle="modal">
+					<li class="active"><img th:src="${item.itemImage1}" data-target="cote_big_1" alt="" class="thumb" style="width: 140px; height: 90px;"></li></a>
+					<a data-target="#modal2" data-toggle="modal">
+						<li><img th:src="${item.itemImage2}" data-target="cote_big_2" alt="" class="thumb" style="width: 140px; height: 90px;"></li></a>
+					<a data-target="#modal3" data-toggle="modal">
+						<li><img th:src="${item.itemImage3}" data-target="cote_big_3" alt="" class="thumb" style="width: 140px; height: 90px;"></li></a>
+					<a data-target="#modal4" data-toggle="modal">
+						<li><img th:src="${item.itemImage4}" data-target="cote_big_4" alt="" class="thumb" style="width: 140px; height: 90px;"></li></a>
 				</ul>
 				<div class="left_2">
 					<ul class="nav nav-tabs">
@@ -44,27 +48,6 @@
 					</ul>
 				</div>
 			</div>
-
-			<script>
-   $(document).ready(function() {
-    // 썸네일 이미지에 대한 클릭 이벤트 처리
-    $(".thumb").click(function() {
-      var target = $(this).data("target");
-      $("#bigImg").attr("src", "/image/" + target + ".jpeg");
-    });
-
-    // 이미지에 마우스를 가져갔을 때 이벤트 처리
-    $(".thumb").hover(function() {
-      var target = $(this).data("target");
-      $("#bigImg").attr("src", "/image/" + target + ".jpeg");
-    }, function() {
-      // 마우스가 벗어났을 때, 원래 이미지로 변경
-      $("#bigImg").attr("src", "/image/cote_big_1.jpeg");
-    });
-  });
-</script>
-
-
 
 			<div class="droduct_specs col-md-5">
 				<h3><span class="name" th:text = "${item.itemName}"></span></h3>
@@ -85,5 +68,60 @@
 </section>
 
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
+
+<div class = "row">
+	<div class = "modal" id = "modal1" tabindex="-1">
+		<div class = "modal-dialog modal-lg">
+			<div class = "modal-content">
+			<!--	<div class = "modal-header">
+					<button class = "close" data-dismiss="modal">&times;</button>
+				</div> -->
+				<div class = "modal-body" style = "text-align: center;">
+					<img th:src = "${item.itemImage1}" id = "itemimage1" style = "width: 870px; height: 630px; border-radius: 7px;">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class = "modal" id = "modal2" tabindex="-1">
+		<div class = "modal-dialog modal-lg">
+			<div class = "modal-content">
+				<div class = "modal-header">
+					<button class = "close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class = "modal-body" style = "text-align: center;">
+					<img th:src = "${item.itemImage2}" id = "itemimage2" style = "width: 870px; height: 630px; border-radius: 7px;">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class = "modal" id = "modal3" tabindex="-1">
+		<div class = "modal-dialog modal-lg">
+			<div class = "modal-content">
+				<div class = "modal-header">
+					<button class = "close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class = "modal-body" style = "text-align: center;">
+					<img th:src = "${item.itemImage3}" id = "itemimage3" style = "width: 870px; height: 630px; border-radius: 7px;">
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class = "modal" id = "modal4" tabindex="-1">
+		<div class = "modal-dialog modal-lg">
+			<div class = "modal-content">
+				<div class = "modal-header">
+					<button class = "close" data-dismiss="modal">&times;</button>
+				</div>
+				<div class = "modal-body" style = "text-align: center;">
+					<img th:src = "${item.itemImage4}" id = "itemimage4" style = "width: 870px; height: 630px; border-radius: 7px;">
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
 </body>
 </html>
