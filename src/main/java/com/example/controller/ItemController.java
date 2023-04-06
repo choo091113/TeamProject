@@ -63,6 +63,13 @@ public class ItemController {
         return "layout/order";
     }
 
+    @GetMapping("/order2/{id}")
+    public String order2(@PathVariable Long id, Model model) {
+        ItemDTO itemDTO = itemService.findById(id);
+        model.addAttribute("item", itemDTO);
+        return "layout/order2";
+    }
+
     @GetMapping("layout/Slist")
     public String search(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
         if (keyword == null || keyword.trim().isEmpty()) {

@@ -57,11 +57,6 @@ public class ThymeleafController {
         return "layout/myPage_orderlist.html";
     }
 
-    @GetMapping(value = "layout/order2")
-    public String order2() {
-        return "layout/order2.html";
-    }
-
     @GetMapping(value = "layout/Proseller")
     public String Proseller() {
         return "layout/Proseller.html";

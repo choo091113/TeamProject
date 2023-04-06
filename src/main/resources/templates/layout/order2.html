@@ -25,19 +25,19 @@
 		</div>
 			<div class="board_body">
 				<div class="board_block">
-					<h3>수강 정보</h3>
+					<h3>상품 정보</h3>
 						<div class="board_block_item">
 							<span>상품명</span>
-							<p>상품명은 러버덕</p>
+							<p th:text = "${item.itemName}"></p>
 						</div>
 						<hr>
 					<div class="board_block_item">
 						<span>이름</span>
-						<p>최혜빈</p>
+						<p th:text = "${session.loginName}"></p>
 					</div>
 						<div class="board_block_item">
 							<span>이메일</span>
-							<p>h_bee99@naver.com</p>
+							<p th:text = "${session.loginEmail}"></p>
 						</div>
 						<div class="board_block_item">
 							<span>전화번호</span>
@@ -48,12 +48,12 @@
 					<h3>결제 정보</h3>
 					<div class="board_block_item">
 						<span>판매가</span>
-						<p>250,000,000</p>
+						<p th:text = "${item.itemPrice}"></p>
 					</div>
 					<hr>
 					<div class="board_block_item2">
 						<span>결제 금액</span>
-						<p>250,000,000원</p>
+						<p th:text = "${item.itemPrice} + '원'"></p>
 					</div>
 					<div class="board_block_item2">
 						<span>결제 수단</span>
