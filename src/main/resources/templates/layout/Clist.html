@@ -50,8 +50,9 @@
 
 					 </div>
 					 <div class="mcard-text">
-						 <h4 class="card-Name" th:text="${item.itemName}"></h4>
-						 <p class="card-Content1" th:text="${item.itemContent1}"></p>
+						 <h4 class="card-Name" th:text="${item.itemName}"></h4> <p>
+						 <h3 class="card-Price" th:text="${item.itemPrice} + '원+'" style="font-weight:bold;"></h3>
+
 					 </div>
 					 <div class="mcard-stats"></div>
 				 </div>
