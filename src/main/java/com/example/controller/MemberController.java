@@ -18,14 +18,22 @@ public class MemberController {
     // 생성자 주입
     private final MemberService memberService;
 
+    @GetMapping(value = "/signpage")
+    public String signpage() {
+        return "layout/signpage.html";
+    }
 
+    @GetMapping(value = "/signPro")
+    public String signPro() {
+        return "layout/signPro.html";
+    }
     //회원가입 페이지 출력 요청
-    @GetMapping("layout/signCli")
+    @GetMapping("/signCli")
     public String signCli() {
         return "layout/signCli.html";
     }
 
-    @PostMapping("layout/signCli")
+    @PostMapping("/signCli")
     public String save(@ModelAttribute MemberDTO memberDTO) {
         System.out.println("MemberDTO = " + memberDTO);
         System.out.println("memberDTO = " + memberDTO);
@@ -33,12 +41,12 @@ public class MemberController {
         return "layout/complete.html";
     }
 
-    @GetMapping("layout/loginpage")
+    @GetMapping("/loginpage")
     public String loginform() {
         return "layout/loginpage.html";
     }
 
-    @PostMapping("layout/loginpage")
+    @PostMapping("/loginpage")
     public String login(@ModelAttribute MemberDTO memberDTO, HttpSession session) {
         MemberDTO loginResult = memberService.login(memberDTO);
         if (loginResult != null) {
@@ -53,7 +61,7 @@ public class MemberController {
         }
     }
 
-    @GetMapping("layout/list")
+    @GetMapping("/list")
         public String findAll(Model model) {
             List<MemberDTO> memberDTOList = memberService.findAll();
             // 어떠한 html로 가져갈 데이터가 있다면 model을 사용
@@ -62,12 +70,12 @@ return "layout/list";
         }
 
 
-@GetMapping("layout/logout")
+@GetMapping("/logout")
     public String logout(HttpSession session) {
         session.invalidate();
         return "layout/Main.html";
 }
-    @GetMapping("myPage_cash/{id}")
+    @GetMapping("/myPage_cash/{id}")
     public String myPage_cash(@PathVariable Long id, Model model) {
         MemberDTO memberDTO = memberService.findById(id);
         model.addAttribute("member", memberDTO);
@@ -115,7 +123,7 @@ return "layout/list";
         return "redirect:/myProfile";
     }
 
-    @PostMapping("/layout/email-check")
+    @PostMapping("/email-check")
     public @ResponseBody String emailCheck(@RequestParam("memberEmail") String memberEmail) {
         System.out.println("memberEmail = " + memberEmail);
         String checkResult = memberService.emailCheck(memberEmail);

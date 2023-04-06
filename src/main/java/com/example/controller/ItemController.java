@@ -20,20 +20,20 @@ public class ItemController {
     public final ItemService itemService;
 
     // 상품등록 페이지 출력 요청
-    @GetMapping("layout/itemForm")
+    @GetMapping("/itemForm")
     public String saveitem() {
         return "layout/itemForm";
     }
 
 
-    @PostMapping("layout/itemForm")
+    @PostMapping("/itemForm")
     public String postitem(@ModelAttribute ItemDTO itemDTO) {
         System.out.println("itemDTO = " + itemDTO);
         itemService.saveitem(itemDTO);
         return "layout/Main";
     }
 
-    @GetMapping("layout/Clist")
+    @GetMapping("/Clist")
     public String findAllitem(Model model) {
         List<ItemDTO> itemDTOList = itemService.findAllitem();
         // 어떠한 html로 가져갈 데이터가 있다면 model 사용
@@ -41,7 +41,7 @@ public class ItemController {
         return "layout/Clist";
     }
 
-    @GetMapping("layout/Main")
+    @GetMapping("/Main")
     public String findTop3ByOrderByIdDesc(Model model) {
         List<ItemDTO> itemDTOList = itemService.findTop3ByOrderByIdDesc();
         // 어떠한 html로 가져갈 데이터가 있다면 model 사용
@@ -49,7 +49,7 @@ public class ItemController {
         return "layout/Main";
     }
 
-    @GetMapping("layout/itemDtl/{id}")
+    @GetMapping("/itemDtl/{id}")
     public String findByid(@PathVariable Long id, Model model) {
         ItemDTO itemDTO = itemService.findById(id);
         model.addAttribute("item", itemDTO);
@@ -70,7 +70,7 @@ public class ItemController {
         return "layout/order2";
     }
 
-    @GetMapping("layout/Slist")
+    @GetMapping("/Slist")
     public String search(@RequestParam(name = "keyword", required = false) String keyword, Model model) {
         if (keyword == null || keyword.trim().isEmpty()) {
             List<ItemDTO> items = itemService.findAllitem();
