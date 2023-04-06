@@ -28,14 +28,14 @@
 				<div class="board_block">
 					<h3>주문 상품</h3>
 					<div class="purchase_product">
-						<div class="purchase_product_thumb"><img src="/image/duck00.jpeg" alt=""></div>
+						<div class="purchase_product_thumb"><img th:src = "${item.itemImage1}" id = "itemimage1" style = "width: 275px; height: 175px;"></div>
 						<div class="purchase_product_caption">
 							<dl>
-								<dt>주문한 상품의 이름</dt>
-								<dd>주문한 상품의 설명 : 러버덕</dd>
+								<dt><span class="name" th:text = "${item.itemName}"></span></dt>
+								<dd><span class="content" th:text = "${item.itemContent1}"></span></dd>
 							</dl>
 							<em>
-								250,000,000원
+								<span class="price" th:text = "${item.itemPrice} + '원 (VAT 포함)'"></span>
 							</em>
 						</div>
 					</div>
@@ -58,7 +58,7 @@
 				<div class="board_block">
 					<div class="board_block_item">
 						<strong>총 결제 금액</strong>
-						<strong>250,000,000원</strong>
+						<strong><span class="price" th:text = "${item.itemPrice} + '원'"></span></strong>
 					</div>
 				</div>
 				<div class="board_block">

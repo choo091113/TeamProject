@@ -60,7 +60,11 @@
 					</div>
 				</form>
 				<session class="order_now">
-					<button onclick="location.href='/layout/order'">구매하기</button>
+
+					<a th:href="@{|/order/${item.id}|}">
+						<button>구매하기</button>
+					</a>
+
 				</session>
 			</div>
 		</div>
