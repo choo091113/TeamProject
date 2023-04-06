@@ -54,7 +54,7 @@
 				<form action="">
 					<hr/>
 					<div class="option order_summary row justify-content-between">
-						<span class="price" th:text = "${item.itemPrice}"></span>
+						<span class="price" th:text = "${item.itemPrice} + '원 (VAT 포함)'"></span>
 						<p class = "" th:text="${item.itemContent2}"></p>
 						<hr/>
 					</div>
@@ -86,9 +86,6 @@
 	<div class = "modal" id = "modal2" tabindex="-1">
 		<div class = "modal-dialog modal-lg">
 			<div class = "modal-content">
-				<div class = "modal-header">
-					<button class = "close" data-dismiss="modal">&times;</button>
-				</div>
 				<div class = "modal-body" style = "text-align: center;">
 					<img th:src = "${item.itemImage2}" id = "itemimage2" style = "width: 870px; height: 630px; border-radius: 7px;">
 				</div>
@@ -99,9 +96,6 @@
 	<div class = "modal" id = "modal3" tabindex="-1">
 		<div class = "modal-dialog modal-lg">
 			<div class = "modal-content">
-				<div class = "modal-header">
-					<button class = "close" data-dismiss="modal">&times;</button>
-				</div>
 				<div class = "modal-body" style = "text-align: center;">
 					<img th:src = "${item.itemImage3}" id = "itemimage3" style = "width: 870px; height: 630px; border-radius: 7px;">
 				</div>
@@ -112,9 +106,6 @@
 	<div class = "modal" id = "modal4" tabindex="-1">
 		<div class = "modal-dialog modal-lg">
 			<div class = "modal-content">
-				<div class = "modal-header">
-					<button class = "close" data-dismiss="modal">&times;</button>
-				</div>
 				<div class = "modal-body" style = "text-align: center;">
 					<img th:src = "${item.itemImage4}" id = "itemimage4" style = "width: 870px; height: 630px; border-radius: 7px;">
 				</div>
