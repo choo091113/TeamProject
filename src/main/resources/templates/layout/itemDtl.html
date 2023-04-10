@@ -16,7 +16,7 @@
 <h3><a href="Main" class="" th:text="${item.itemCategory2}" ></a> >
 <a href="instructor" class="" th:text="${item.itemCategory3}"></a></h3>
 
-<div style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
+<div th:if="${item.itemVideo != null}" style="position: relative; padding-bottom: 56.25%; height: 0; overflow: hidden;">
 	<iframe style="position: absolute; top: 0; left: 50%; transform: translateX(-50%); width: 1280px; height: 720px; margin: 0 auto;" th:src="${item.itemVideo}"></iframe>
 </div>
 

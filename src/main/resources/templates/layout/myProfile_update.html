@@ -10,8 +10,10 @@
 <body>
 <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
+
 <main style="background: #fff;">
-    <form th:action="@{/myProfile_update/__${updateMember.id}__}" method="post">
+    <form th:action="|@{/myProfile_update/${session.loginid}}|"  method="get">
+
 
     <div class="itemform_2102">
             <div class="itemform_21311306">

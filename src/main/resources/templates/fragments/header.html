@@ -93,7 +93,7 @@
                             <li><a href="lecture?lectureName=Java">일본어</a></li>
                             <li><a href="lecture?lectureName=Android">중국어</a></li>
                         </ul></li>
-                    <li><a href="instructor">내 서비스</a></li>
+                    <li><a href="/instructor">내 서비스</a></li>
                 </ul>
                 <ul class="nav navbar-nav navbar-right">
                     <form th:action="@{/Slist}" method = "get" class = "navbar-form navbar-left">
@@ -126,7 +126,7 @@
                     <span class="sr-only"></span> <span class="icon-bar"></span> <span
                         class="icon-bar"></span> <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="Main">추몽</a>
+                <a class="navbar-brand" href="/Main">추몽</a>
             </div>
             <div class="navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav">
@@ -137,7 +137,7 @@
                             <h4>
                                 &nbsp;&nbsp;&nbsp;드로잉<br>
                             </h4>
-                            <li><a href="/Clist">캐릭터</a></li>
+                            <li><a th:href="@{/Clist}">캐릭터</a></li>
                             <li><a href="lecture?lectureName=Java">일러스트</a></li>
                             <li><a href="lecture?lectureName=Android">캐리커쳐</a></li>
                             <hr>

@@ -62,6 +62,7 @@ public class ItemEntity {
 
     public static ItemEntity toItemEntity(ItemDTO itemDTO) {
         ItemEntity itemEntity = new ItemEntity();
+        itemEntity.setId(itemDTO.getId());
         itemEntity.setItemName(itemDTO.getItemName());
         itemEntity.setItemPrice(itemDTO.getItemPrice());
         itemEntity.setItemImage1(itemDTO.getItemImage1());

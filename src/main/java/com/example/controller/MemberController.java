@@ -110,12 +110,24 @@ return "layout/list";
         return "layout/myPage_update";
     }
 
-    @GetMapping("/myProfile_update/{id}")
+   /* @GetMapping("/myProfile_update/{id}")
     public String myProfile_update(HttpServletRequest request, Model model) {
         MemberDTO memberDTO = memberService.findById(Long.parseLong(request.getParameter("id")));
         model.addAttribute("updateMember", memberDTO);
         return "layout/myProfile_update";
+    } */
+
+    @GetMapping("/myProfile_update/{id}")
+    public String myProfile_update(@PathVariable("id") String id, Model model) {
+        if (id == null) {
+            // id가 null일 경우 처리
+            return "error";
+        }
+        MemberDTO memberDTO = memberService.findById(Long.parseLong(id));
+        model.addAttribute("updateMember", memberDTO);
+        return "layout/myProfile_update";
     }
+
 
     @PostMapping("/myProfile_update")
     public String myProfile_update(MemberDTO memberDTO) {

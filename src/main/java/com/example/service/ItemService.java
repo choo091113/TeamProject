@@ -46,6 +46,8 @@ public class ItemService {
         return itemDTOList;
     }
 
+
+
     public ItemDTO findById(Long id) {
         Optional<ItemEntity> optionalItemEntity = itemRepository.findById(id);
         if(optionalItemEntity.isPresent()) {
