@@ -17,7 +17,7 @@
 <table>
   <thead>
   <tr>
-    <th>Id</th>
+
     <th>Email</th>
     <th>Name</th>
     <th>Type</th>
@@ -27,7 +27,7 @@
   </thead>
   <tbody>
   <tr th:each="member : ${memberList}">
-    <td th:text="${member.id}"></td>
+
     <td th:text="${member.memberEmail}"></td>
     <td th:text="${member.memberName}"></td>
     <td th:text="${member.memberType}"></td>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width" , initial-scale="1">
+  <title>추몽</title>
+  <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+  <script src=" /js/bootstrap.js"></script>
+  <script src="https://cdn.ckeditor.com/ckeditor5/31.1.0/classic/ckeditor.js"></script>
+  <link rel="stylesheet" href=" /css/itemForm.css">
+
+  <style>
+        .ck.ck-editor {
+            max-width: 100%;
+        }
+        .ck-editor__editable {
+            min-height: 300px;
+        }
+
+    </style>
+</head>
+
+<body>
+<th:block th:replace="fragments/header :: headerFragment"></th:block>
+
+
+
+
+<main style="background: #fff;">
+  <form action ="noticeForm" method = "post">
+    <div class="itemform_211302">
+      <div class="itemform_211306">
+        <!-- 기본정보 -->
+        <div class="itemform_211316">
+          <span class="keytitle">공지 제목</span>
+          <input placeholder="제목을 입력해주세요" type="text" name = "noticeTitle">
+        </div>
+        <div class="itemform_211316">
+          <span class="keytitle">공지 내용</span>
+          <input placeholder="소제목을 입력해주세요" type="text" name = "noticeContent">
+        </div>
+
+
+        <button type="submit" class="savebutton" onclick="location.href='/Main'">제출하기</button>
+      </div>
+    </div>
+
+
+  </form>
+
+</main>
+</body>
+</html>
