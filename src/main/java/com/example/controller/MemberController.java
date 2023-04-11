@@ -2,6 +2,7 @@ package com.example.controller;
 
 import com.example.dto.ItemDTO;
 import com.example.dto.MemberDTO;
+import com.example.role.MemberType;
 import com.example.service.MemberService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
@@ -67,6 +68,7 @@ public class MemberController {
             List<MemberDTO> memberDTOList = memberService.findAll();
             // 어떠한 html로 가져갈 데이터가 있다면 model을 사용
             model.addAttribute("memberList", memberDTOList);
+
 return "layout/list";
         }
 
@@ -146,5 +148,30 @@ return "layout/list";
 //        } else {
 //            return "no";
 //        }
+    }
+
+    @PostMapping("/admin/member/change-type")
+    public String changeMemberType(@RequestParam Long id, @RequestParam String memberType) {
+        memberService.changeMemberType(id, memberType);
+        return "redirect:list";
+    }
+
+    // 회원 삭제
+    @PostMapping("/admin/member/delete")
+    public String deleteMember(@RequestParam Long id) {
+        memberService.deleteById(id);
+        return "redirect:list";
+    }
+
+    @GetMapping("/admin/member/list")
+    public String findAll(Model model, HttpSession session) {
+        String memberType = (String) session.getAttribute("loginType");
+        List<MemberDTO> memberDTOList = memberService.findAll();
+        model.addAttribute("memberList", memberDTOList);
+        if(memberType != null && (memberType.equals("ADMIN"))) {
+            return "layout/memberList";
+        }else {
+            return "redirect:/Main";
+        }
     }
 }

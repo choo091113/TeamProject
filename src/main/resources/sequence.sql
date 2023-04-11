@@ -7,3 +7,8 @@ ADD CONSTRAINT FK_ITEM_TABLE_MEMBER_TABLE,
 FOREIGN KEY(id),
 REFERENCES member_table(id);
 
+DROP SEQUENCE id_sequence;
+
+
+drop sequence item_sequence;
+

@@ -64,6 +64,8 @@ public class ItemService {
         }
         return itemDTOList;
     }
-
+    public void deleteItem(Long id) {
+        itemRepository.deleteById(id);
+    }
 }
 

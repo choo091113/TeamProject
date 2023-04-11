@@ -1,6 +1,7 @@
 package com.example.dto;
 
 import com.example.entity.MemberEntity;
+import com.example.role.MemberType;
 import lombok.*;
 
 import java.sql.Date;

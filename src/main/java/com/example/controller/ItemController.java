@@ -98,7 +98,22 @@ public class ItemController {
         }
     }
 
+    @GetMapping("/admin/item/list")
+    public String getItemList(Model model, HttpSession session) {
+        String memberType = (String) session.getAttribute("loginType");
+        List<ItemDTO> itemList = itemService.findAllitem();
+        model.addAttribute("itemList", itemList);
+        if(memberType != null && (memberType.equals("ADMIN"))) {
+            return "layout/itemList";
+        }else {
+            return "redirect:/Main";
+        }
+    }
 
-
+    @PostMapping("/admin/item/delete")
+    public String deleteItem(@RequestParam Long id) {
+        itemService.deleteItem(id);
+        return "redirect:list";
+    }
 }
 

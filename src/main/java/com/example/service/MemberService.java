@@ -3,6 +3,7 @@ package com.example.service;
 import com.example.dto.MemberDTO;
 import com.example.entity.MemberEntity;
 import com.example.repository.MemberRepository;
+import com.example.role.MemberType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -69,8 +70,8 @@ public class MemberService {
         List<MemberDTO> memberDTOList = new ArrayList<>();
         for (MemberEntity memberEntity : memberEntityList) {
             memberDTOList.add(MemberDTO.tomemberDTO(memberEntity));
-            MemberDTO memberDTO = MemberDTO.tomemberDTO(memberEntity);
-            memberDTOList.add(memberDTO);
+         //   MemberDTO memberDTO = MemberDTO.tomemberDTO(memberEntity);
+          //  memberDTOList.add(memberDTO);
         }
         return memberDTOList;
     }
@@ -110,5 +111,12 @@ public class MemberService {
             // 조회결과가 없다 -> 사용할 수 있다.
             return "ok";
         }
+    }
+
+    public void changeMemberType(Long id, String memberType) {
+        MemberEntity member = memberRepository.findById(id)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid id: " + id));
+        member.setMemberType(memberType);
+        memberRepository.save(member);
     }
 }

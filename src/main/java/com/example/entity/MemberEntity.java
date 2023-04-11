@@ -1,6 +1,7 @@
 package com.example.entity;
 
 import com.example.dto.MemberDTO;
+import com.example.role.MemberType;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -29,6 +30,7 @@ public class MemberEntity {
     private String memberName;
 
     @Column
+
     private String memberType;
 
     @Column
