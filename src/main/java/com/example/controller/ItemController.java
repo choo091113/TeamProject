@@ -10,6 +10,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.List;
 
 @Controller
@@ -20,10 +21,21 @@ public class ItemController {
     public final ItemService itemService;
 
     // 상품등록 페이지 출력 요청
+//    @GetMapping("/itemForm")
+//    public String saveitem() {
+//        return "layout/itemForm";
+//    }
     @GetMapping("/itemForm")
-    public String saveitem() {
-        return "layout/itemForm";
+    public String itemFormAccess(HttpSession session) {
+        String memberType = (String) session.getAttribute("loginType");
+        if(memberType != null && (memberType.equals("PRO") || memberType.equals("ADMIN"))) {
+            return "layout/itemForm";
+        } else {
+            System.out.println("Invalid memberType: " + memberType);
+            return "redirect:/loginpage";
+        }
     }
+
 
 
     @PostMapping("/itemForm")
@@ -85,6 +97,8 @@ public class ItemController {
             return "layout/Slist";
         }
     }
+
+
 
 }
 

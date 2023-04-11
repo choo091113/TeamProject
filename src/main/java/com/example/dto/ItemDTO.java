@@ -39,9 +39,13 @@ public class ItemDTO {
 
     private Date itemDate;
 
+private String itemSeller;
+
+private int itemSellerid;
+
     public static ItemDTO toitemDTO(ItemEntity itemEntity) {
         ItemDTO itemDTO = new ItemDTO();
-        itemDTO.setId(itemEntity.getId());
+        itemDTO.setId((long) itemEntity.getId());
         itemDTO.setItemName(itemEntity.getItemName());
         itemDTO.setItemPrice(itemEntity.getItemPrice());
         itemDTO.setItemImage1(itemEntity.getItemImage1());
@@ -55,7 +59,8 @@ public class ItemDTO {
         itemDTO.setItemCategory2(itemEntity.getItemCategory2());
         itemDTO.setItemCategory3(itemEntity.getItemCategory3());
         itemDTO.setItemDate(itemEntity.getItemDate());
-
+itemDTO.setItemSeller(itemEntity.getItemSeller());
+ itemDTO.setItemSellerid(itemEntity.getItemSellerid());
 
         return itemDTO;
     }

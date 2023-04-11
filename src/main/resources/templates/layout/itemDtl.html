@@ -58,13 +58,16 @@
 						<p class = "" th:text="${item.itemContent2}"></p>
 						<hr/>
 					</div>
+
+					<h3><span class="name" th:text = "'판매자 : ' + ${item.itemSeller}"></span></h3>
 				</form>
+
+
 				<session class="order_now">
 
 					<a th:href="@{|/order/${item.id}|}">
 						<button>구매하기</button>
 					</a>
-
 				</session>
 			</div>
 		</div>

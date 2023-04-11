@@ -54,6 +54,7 @@ public class MemberController {
             session.setAttribute("loginName", loginResult.getMemberName());
             session.setAttribute("loginid", loginResult.getId());
             session.setAttribute("loginEmail", loginResult.getMemberEmail());
+            session.setAttribute("loginType", loginResult.getMemberType());
             return "layout/Main";
         } else {
             // 로그인 실패

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="_csrf" th:content="${_csrf.token}"/>
+  <meta name="_csrf_header" th:content="${_csrf.headerName}"/>
+  <title>admin userlist</title>
+  <script src="https://kit.fontawesome.com/e6f78261b2.js" crossorigin="anonymous"></script>
+  <script src="/js/jquery.js"></script>
+  <link rel="stylesheet" href="/css/admin/admin_userlist.css">
+  <link rel="stylesheet" href="/css/admin/admin_nav.css">
+</head>
+<body>
+<nav th:replace="admin/admin_nav :: navFragment"></nav>
+<section>
+  <form class= "search-form" id="search-form" method="GET" th:action="@{/admin/userList}">
+    <select name="searchCondition" class="search-mode search-item" form="search-form">
+      <option value="userid">아이디</option>
+      <option value="username">이름</option>
+      <!--            <option value="phone">휴대전화</option>-->
+      <!--            <option value="visit">방문횟수</option>-->
+      <!--            <option value="order">주문횟수</option>-->
+    </select>
+    <input type="text" name="searchKeyword" class="search-input search-item">
+    <input type="submit" class="search-submit search-item" value="검색">
+  </form>
+  <div class="user-box">
+    <div class="num-searched-box">
+      총 <b class="num-searched"><span th:text="${memberList.totalElements}"></span></b> 명의 회원이 검색되었습니다
+    </div>
+    <table class="user-table">
+      <thead>
+      <tr>
+        <th><input type="checkbox" class="checkbox-selectall"></th>
+        <th>기본정보</th>
+        <th>유형</th>
+        <th>휴대전화</th>
+        <th>방문횟수</th>
+        <th>가입일</th>
+        <th>상세보기</th>
+        <th>삭제</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr th:each="user : ${memberList}">
+        <td><input type="checkbox" class="checkbox-select">상현</td>
+        <td th:text = "${user.name} + '(' + ${user.loginId}+ ')'"></td>
+        <td th:text = "${user.memberGrade}">일반회원</td>
+        <td th:text = "${#strings.replace(user.phoneNumber, ',', '-')}">010-1234-5678</td>
+        <td th:text = "${user.visitCount}"></td>
+        <td th:text = "${user.orderCount}"></td>
+        <td></td>
+        <td th:text="${#temporals.format(user.createdAt, 'yyyy-MM-dd')}"></td>
+        <td><input type="button" value="보기" class="userdetailbtn table-btn" th:onclick="|openUserDetail('${user.id}')|"></td>
+        <td><input type="button" value="삭제" class="deletebtn table-btn" th:onclick="|deleteUser('${user.id}')|"></td>
+        <input type="hidden" th:value="${user.id}">
+      </tr>
+      </tbody>
+
+
+    </table>
+
+    <div class="bottombtn-box">
+      <input type="button" value="전체선택" class="selectallbtn bottombtn" th:onclick="|checkall()|">
+      <input type="button" value="선택삭제" class="bottom-deletebtn bottombtn" th:onclick="|deleteCheckedUsers()|">
+
+    </div>
+    <!-- 여기 수정 -->
+    <div class="paginate">
+      <ul class="pagination justify-content-center">
+        <li class="page-item" th:classappend="${1 == memberList.pageable.pageNumber + 1} ? 'disabled'">
+          <a class="page-link" href="#" th:href="@{/admin/userList(page=${memberList.pageable.pageNumber - 1},searchCondition=${searchCondition},searchKeyword=${searchKeyword})}" tabindex="-1" aria-disabled="true">Previous</a>
+        </li>
+
+        <li class="page-item" th:classappend="${i == memberList.pageable.pageNumber + 1} ? 'disabled'" th:each="i : ${#numbers.sequence(startPage, endPage)}">
+          <a class="page-link" href="#" th:href="@{/admin/userList(page=${i - 1},searchCondition=${searchCondition},searchKeyword=${searchKeyword})}" th:text="${i}">1</a></li>
+
+        <li class="page-item" th:classappend="${memberList.totalPages == memberList.pageable.pageNumber + 1} ? 'disabled'">
+          <a class="page-link" href="#" th:href="@{/admin/userList(page=${memberList.pageable.pageNumber + 1},searchCondition=${searchCondition},searchKeyword=${searchKeyword})}">Next</a>
+        </li>
+      </ul>
+    </div>
+    <!-- 여기까지 -->
+  </div>
+</section>
+<script src="/js/admin/admin_nav.js"></script>
+<script src="/js/admin/admin_userlist.js"></script>
+
+</body>
+</html>

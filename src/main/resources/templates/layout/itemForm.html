@@ -23,7 +23,7 @@
 <body>
 <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
-<div th:if="${session.loginid} == 3">
+
 
 
 <main style="background: #fff;">
@@ -133,8 +133,15 @@
             <input placeholder="주소를 입력해주세요" type="text" name = "itemImage3">
             <span class="keytitle">이미지4</span>
             <input placeholder="주소를 입력해주세요" type="text" name = "itemImage4">
-            <span class="keytitle">id값</span>
-            <input placeholder="전문가의 id값을 입력해주세요" type=number name = "id">
+
+            <span class="keytitle">유튜브 링크</span>
+            <input placeholder="영상 주소를 입력해주세요" type="text" name = "itemVideo">
+
+            <input type="number" name="itemSellerid" th:value="${session.loginid}" required>
+
+            <input type="hidden" name="itemSeller" th:value="${session.loginName}" required>
+
+
             <button type="submit" class="savebutton" onclick="location.href='/Main'">제출하기</button>
         </div>
     </div>
@@ -143,12 +150,5 @@
 </form>
 
 </main>
-
-</div>
-
-<div th:if="${session.loginid} != 3">
-    <h1>관리자만 접근 가능합니다.</h1>
-</div>
-
 </body>
 </html>

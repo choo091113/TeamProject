@@ -16,8 +16,8 @@ public class ItemEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.SEQUENCE, generator = "item_sequence")
-    @SequenceGenerator(name = "item_sequence", sequenceName = "item_sequence", allocationSize = 1)
-    private Long id;
+    @Column(name = "id")
+    private long id;
 
     @Column
     private String itemName;
@@ -58,11 +58,14 @@ public class ItemEntity {
     @Column(insertable = false, updatable = false, columnDefinition = "date default sysdate")
     private Date itemDate;
 
+    @Column
+    private String itemSeller;
+
+    @Column int itemSellerid;
 
 
     public static ItemEntity toItemEntity(ItemDTO itemDTO) {
         ItemEntity itemEntity = new ItemEntity();
-        itemEntity.setId(itemDTO.getId());
         itemEntity.setItemName(itemDTO.getItemName());
         itemEntity.setItemPrice(itemDTO.getItemPrice());
         itemEntity.setItemImage1(itemDTO.getItemImage1());
@@ -76,9 +79,8 @@ public class ItemEntity {
         itemEntity.setItemCategory2(itemDTO.getItemCategory2());
         itemEntity.setItemCategory3(itemDTO.getItemCategory3());
         itemEntity.setItemDate(itemDTO.getItemDate());
-
-
-
+itemEntity.setItemSeller(itemDTO.getItemSeller());
+ itemEntity.setItemSellerid(itemDTO.getItemSellerid());
         return itemEntity;
 
     }
