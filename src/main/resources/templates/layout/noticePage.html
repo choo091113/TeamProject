@@ -1,10 +1,19 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <meta name="viewport" content="width=device-width" , initial-scale="1">
+    <title>추몽</title>
+    <link rel="stylesheet" href="/css/bootstrap.css">
+    <link rel="stylesheet" href="/css/codingBooster.css">
+    <script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script src="/js/bootstrap.js"></script>
 </head>
+
 <body>
+
+<th:block th:replace="fragments/header :: headerFragment"></th:block> <!-- 헤더 연동 -->
+
 <h1>공지사항</h1>
 <table>
     <tr th:each="notice: ${noticeList}">
@@ -13,5 +22,7 @@
         <td th:text = "${notice.noticeContent}"></td>
     </tr>
 </table>
+
+<th:block th:replace="fragments/footer :: footerFragment"></th:block>
 </body>
 </html>

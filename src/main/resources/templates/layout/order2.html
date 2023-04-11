@@ -65,7 +65,9 @@
 					</div>
 				</div>
 				<session>
-					<button class="btn_purchase_submit" onclick="location.href='/myPage_charges/${session.loginid}'">결제 내역 확인</button>
+					<a th:href="@{|/myPage_charges/${session.loginid}|}">
+					<button class="btn_purchase_submit">결제 내역 확인</button>
+					</a>
 				</session>
 			</div>
 		</div>
