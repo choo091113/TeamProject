@@ -174,4 +174,16 @@ return "layout/list";
             return "redirect:/Main";
         }
     }
+
+    @GetMapping("/adminPage")
+    public String adminbutton(HttpSession session) {
+        String memberType = (String) session.getAttribute("loginType");
+        if(memberType != null && (memberType.equals("ADMIN"))) {
+            return "layout/adminPage";
+        } else {
+            System.out.println("Invalid memberType: " + memberType);
+            return "redirect:/loginpage";
+        }
+    }
+
 }
