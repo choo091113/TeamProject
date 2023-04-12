@@ -19,7 +19,6 @@ public class HistoryDTO {
     private int historyMemberid;
 
     private String historyMember;
-
     private String historyMemberprofile;
     private String historySeller;
     private String historyName;
@@ -27,6 +26,8 @@ public class HistoryDTO {
     private String historyImage;
 
     private int historyPrice;
+
+    private int historySellerid;
     private Date historyDate;
 
     public static HistoryDTO tohistoryDTO(HistoryEntity historyEntity) {
@@ -35,6 +36,7 @@ public class HistoryDTO {
         historyDTO.setHistoryItemid(historyEntity.getHistoryItemid());
         historyDTO.setHistoryMemberid(historyEntity.getHistoryMemberid());
         historyDTO.setHistoryMember(historyEntity.getHistoryMember());
+        historyDTO.setHistorySellerid(historyEntity.getHistorySellerid());
         historyDTO.setHistoryMemberprofile(historyEntity.getHistoryMemberprofile());
         historyDTO.setHistorySeller(historyEntity.getHistorySeller());
         historyDTO.setHistoryName(historyEntity.getHistoryName());

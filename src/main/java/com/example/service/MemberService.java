@@ -84,7 +84,14 @@ public class MemberService {
             return null;
         }
     }
-
+    public MemberDTO findByMemberName(String MemberName) {
+        Optional<MemberEntity> optionalMemberEntity = memberRepository.findByMemberName(MemberName);
+        if (optionalMemberEntity.isPresent()) {
+            return MemberDTO.tomemberDTO(optionalMemberEntity.get());
+        } else {
+            return null;
+        }
+    }
     public MemberDTO updateForm(String myEmail) {
         Optional<MemberEntity> optionalMemberEntity = memberRepository.findByMemberEmail(myEmail);
         if (optionalMemberEntity.isPresent()) {

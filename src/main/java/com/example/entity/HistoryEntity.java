@@ -32,6 +32,9 @@ private String historyMember;
 private String historyMemberprofile;
 
 @Column
+private int historySellerid;
+
+@Column
 private String historySeller;
 @Column
 private String historyName;
@@ -50,6 +53,7 @@ private int historyPrice;
         historyEntity.setHistoryId(historyDTO.getHistoryId());
         historyEntity.setHistoryItemid(historyDTO.getHistoryItemid());
         historyEntity.setHistoryMemberid(historyDTO.getHistoryMemberid());
+        historyEntity.setHistorySellerid(historyDTO.getHistorySellerid());
         historyEntity.setHistoryMember(historyDTO.getHistoryMember());
         historyEntity.setHistoryMemberprofile(historyDTO.getHistoryMemberprofile());
         historyEntity.setHistorySeller(historyDTO.getHistorySeller());
@@ -70,6 +74,7 @@ private int historyPrice;
         historyEntity.setHistoryMemberprofile(historyDTO.getHistoryMemberprofile());
         historyEntity.setHistorySeller(historyDTO.getHistorySeller());
       historyEntity.setHistoryName(historyDTO.getHistoryName());
+        historyEntity.setHistorySellerid(historyDTO.getHistorySellerid());
   historyEntity.setHistoryImage(historyDTO.getHistoryImage());
   historyEntity.setHistoryPrice(historyDTO.getHistoryPrice());
        historyEntity.setHistoryDate(historyDTO.getHistoryDate());

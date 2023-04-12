@@ -10,5 +10,5 @@ import java.util.List;
 
 public interface HistoryRepository extends JpaRepository<HistoryEntity, Long> {
     List<HistoryEntity> findAllByHistoryMemberid(int HistoryMemberid);
-
+    List<HistoryEntity> findAllByHistorySellerid(int HistorySellerid);
 }

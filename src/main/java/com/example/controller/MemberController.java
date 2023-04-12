@@ -130,7 +130,7 @@ return "layout/list";
     @GetMapping(value = "/seller_orderList/{id}")
     public String seller_orderList(@PathVariable Long id, Model model) {
         MemberDTO memberDTO = memberService.findById(id);
-        List<HistoryDTO> historyDTOList = historyService.findAllByHistoryMemberid(memberDTO.getId().intValue());
+        List<HistoryDTO> historyDTOList = historyService.findAllByHistorySellerid(memberDTO.getId().intValue());
         model.addAttribute("member", memberDTO);
         model.addAttribute("historyList", historyDTOList);
         return "layout/seller_orderList";

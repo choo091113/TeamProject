@@ -56,4 +56,13 @@ public class HistoryService {
         }
         return historyDTOList;
     }
+
+    public List<HistoryDTO> findAllByHistorySellerid(int HistorySellerid) {
+        List<HistoryEntity> historyEntityList = historyRepository.findAllByHistorySellerid(HistorySellerid);
+        List<HistoryDTO> historyDTOList = new ArrayList<>();
+        for (HistoryEntity historyEntity : historyEntityList) {
+            historyDTOList.add(HistoryDTO.tohistoryDTO(historyEntity));
+        }
+        return historyDTOList;
+    }
 }

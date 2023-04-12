@@ -20,12 +20,12 @@
         <div class="myPage_left">
             <div class="myPage_left_profile">
                 <div>
-                    <img src="static/image/duck00.jpeg" alt="" class="myPage_left_Image">
+                    <img th:src="${member.MemberProfile}" alt="item image" class="myPage_left_Image">
                 </div>
                 <div class="myPage_left_board1">
-                    <h3>러버덕</h3>
-                    <a href="#">
-                        <img src="static/image/cogwheel.png" alt="" class="myPage_left_cogwheel">
+                    <h3><span class="name" th:text = "${member.MemberName}"></span></h3>
+                    <a th:href="@{/myProfile_update/{loginid}(loginid=${session.loginid})}">
+                        <img src=" /image/cogwheel.png" alt="" class="myPage_left_cogwheel">
                     </a>
                 </div>
                 <button class="expert_change_btn" onclick="location.href='myPage_orderList'">의뢰인 전환</button>
