@@ -47,5 +47,22 @@ public class NoticeController {
         return "layout/Main";
     }
 
+    @GetMapping("/admin_noticeList")
+    public String findAll(Model model, HttpSession session) {
+        String memberType = (String) session.getAttribute("loginType");
+        List<NoticeDTO> noticeDTOList = noticeService.findAll();
+        model.addAttribute("noticeList", noticeDTOList);
+        if(memberType != null && (memberType.equals("ADMIN"))) {
+            return "layout/admin_noticeList";
+        }else {
+            return "redirect:/Main";
+        }
+    }
+
+    @PostMapping("/admin/notice/delete")
+    public String deleteNotice(@RequestParam Long id) {
+       noticeService.deleteById(id);
+        return "redirect:list";
+    }
 
 }
