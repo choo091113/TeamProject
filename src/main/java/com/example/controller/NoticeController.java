@@ -60,9 +60,9 @@ public class NoticeController {
     }
 
     @PostMapping("/admin/notice/delete")
-    public String deleteNotice(@RequestParam Long id) {
-       noticeService.deleteById(id);
-        return "redirect:list";
+    public String deleteNotice(@RequestParam Long noticeId) {
+       noticeService.deleteById(noticeId);
+        return "redirect:/admin_noticeList";
     }
 
 }
