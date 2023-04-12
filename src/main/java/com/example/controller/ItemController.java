@@ -2,9 +2,11 @@ package com.example.controller;
 
 import com.example.dto.ItemDTO;
 import com.example.dto.MemberDTO;
+import com.example.dto.ReplyDTO;
 import com.example.entity.ItemEntity;
 import com.example.repository.ItemRepository;
 import com.example.service.ItemService;
+import com.example.service.ReplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -19,6 +21,7 @@ import java.util.List;
 public class ItemController {
     // 생성자 주입
     public final ItemService itemService;
+public final ReplyService replyService;
 
     // 상품등록 페이지 출력 요청
 //    @GetMapping("/itemForm")
@@ -45,6 +48,8 @@ public class ItemController {
         return "layout/Main";
     }
 
+
+
     @GetMapping("/Clist")
     public String findAllitem(Model model) {
         List<ItemDTO> itemDTOList = itemService.findAllitem();
@@ -64,8 +69,17 @@ public class ItemController {
     @GetMapping("/itemDtl/{id}")
     public String findByid(@PathVariable Long id, Model model) {
         ItemDTO itemDTO = itemService.findById(id);
+        List<ReplyDTO> replyDTOList = replyService.findAllByReplyItemId(itemDTO.getId().intValue());
         model.addAttribute("item", itemDTO);
+        model.addAttribute("replyList", replyDTOList);
         return "layout/itemDtl";
+    }
+
+
+    @PostMapping("/itemDtl/{id}")
+    public String postreply(@ModelAttribute ReplyDTO replyDTO) {
+        replyService.savereply(replyDTO);
+        return "redirect:/Clist";
     }
 
     @GetMapping("/order/{id}")

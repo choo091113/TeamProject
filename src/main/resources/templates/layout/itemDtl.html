@@ -7,6 +7,7 @@
 	<link rel="stylesheet" href=" /css/itemDtl.css">
 	<script src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
 	<script src=" /js/bootstrap.js"></script>
+	<link rel="stylesheet" href=" /css/itemForm.css">
 	<!-- 'header' 과 'footer' 불러오는 script-->
 
 </head>
@@ -72,6 +73,28 @@
 			</div>
 		</div>
 	</div>
+
+	<h2>서비스 리뷰</h2>
+	<div th:if="${#session} == null">
+	<form action ="itemDtl" method = "post">
+		<div class="itemform_211316">
+			<span class="keytitle">리뷰 작성</span>
+			<input placeholder="리뷰를 작성해주세요" type="text" name = "replyContent">
+		</div>
+		<input type="hidden" name="replyMember" th:value="${session.loginName}" required>
+		<input type="hidden" name="replyProfile" th:value="${session.loginProfile}" required>
+		<input type="hidden" name="replyItemid" th:value="${item.id}" required>
+		<button type="submit" class="savebutton" onclick="location.href='/itemDtl'">등록하기</button>
+	</form>
+	</div>
+			<tr th:each="reply : ${replyList}">
+				<td><img th:src="${reply.replyProfile}" width="40" height="40" style="border-radius: 50%;" /></td>
+						<td th:text="${reply.replyMember}" style="margin-left: 10px;"></td>
+						<td th:text="${reply.replyDate}" style="margin-left: 50px;"></td>
+						<p><span th:text="${reply.replyContent}"></span></p>
+				<hr>
+			</tr>
+
 </section>
 
 <th:block th:replace="fragments/footer :: footerFragment"></th:block>
