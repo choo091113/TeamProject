@@ -65,9 +65,18 @@
 					</div>
 				</div>
 				<session>
-					<a th:href="@{|/myPage_charges/${session.loginid}|}">
-					<button class="btn_purchase_submit">결제 내역 확인</button>
-					</a>
+					<form action="order2" method = "post">
+						<input type="hidden" name="historyMemberid" th:value="${session.loginid}" required>
+						<input type="hidden" name="historyItemid" th:value="${item.id}" required>
+						<input type="hidden" name="historySeller" th:value="${item.itemSeller}" required>
+						<input type="hidden" name="historyName" th:value="${item.itemName}" required>
+						<input type="hidden" name="historyImage" th:value="${item.itemImage1}" required>
+						<input type="hidden" name="historyPrice" th:value="${item.itemPrice}" required>
+						<input type="hidden" name="historyMember" th:value="${session.loginName}" required>
+						<input type="hidden" name="historyMemberprofile" th:value="${session.loginProfile}" required>
+
+							<button type="submit" class="savebutton" onclick="location.href='/order2'">등록하기</button>ㄴ
+					</form>
 				</session>
 			</div>
 		</div>

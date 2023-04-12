@@ -1,13 +1,19 @@
 package com.example.controller;
 
+import com.example.dto.HistoryDTO;
 import com.example.dto.ItemDTO;
 import com.example.dto.MemberDTO;
+import com.example.dto.ReplyDTO;
 import com.example.role.MemberType;
+import com.example.service.HistoryService;
+import com.example.service.ItemService;
 import com.example.service.MemberService;
+import com.example.service.ReplyService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
@@ -18,6 +24,10 @@ import java.util.List;
 public class MemberController {
     // 생성자 주입
     private final MemberService memberService;
+
+    public final HistoryService historyService;
+
+    public final ItemService itemService;
 
     @GetMapping(value = "/signpage")
     public String signpage() {
@@ -104,7 +114,9 @@ return "layout/list";
     @GetMapping("/myPage_orderList/{id}")
     public String myPage_orderList(@PathVariable Long id, Model model) {
         MemberDTO memberDTO = memberService.findById(id);
+        List<HistoryDTO> historyDTOList = historyService.findAllByHistoryMemberid(memberDTO.getId().intValue());
         model.addAttribute("member", memberDTO);
+        model.addAttribute("historyList", historyDTOList);
         return "layout/myPage_orderList";
     }
 
@@ -115,12 +127,14 @@ return "layout/list";
         return "layout/myPage_update";
     }
 
-   /* @GetMapping("/myProfile_update/{id}")
-    public String myProfile_update(HttpServletRequest request, Model model) {
-        MemberDTO memberDTO = memberService.findById(Long.parseLong(request.getParameter("id")));
-        model.addAttribute("updateMember", memberDTO);
-        return "layout/myProfile_update";
-    } */
+    @GetMapping(value = "/seller_orderList/{id}")
+    public String seller_orderList(@PathVariable Long id, Model model) {
+        MemberDTO memberDTO = memberService.findById(id);
+        List<HistoryDTO> historyDTOList = historyService.findAllByHistoryMemberid(memberDTO.getId().intValue());
+        model.addAttribute("member", memberDTO);
+        model.addAttribute("historyList", historyDTOList);
+        return "layout/seller_orderList";
+    }
 
     @GetMapping("/myProfile_update/{id}")
     public String myProfile_update(@PathVariable("id") String id, Model model) {

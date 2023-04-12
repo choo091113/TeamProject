@@ -16,6 +16,7 @@
 <th:block th:replace="fragments/header :: headerFragment"></th:block>
 
 <main class="myPage_theme">
+
     <div class="myPage_all">
         <div class="myPage_left">
             <div class="myPage_left_profile">
@@ -62,21 +63,25 @@
                 <label for="tab3">취소/에러</label>
 
                 <div id="content1" class="tab-content red">
+
                     <div class="orderList_1">
+
                         <div style="width: 80%">
+                    <tr th:each="history : ${historyList}">
                             <div class="orderList_1_1">
+
                                 <span style="color: red; font-weight:bold">요청사항 미작성</span>
                                 <div>
                                     <span style="font-size: 12px">주문일시</span>
-                                    <span style="font-size: 12px"><strong>23.03.08 17:25</strong></span>
+                                    <span th:text="${history.historyDate}" style="font-size: 12px"><strong></strong></span>
                                 </div>
                             </div>
                             <div class="orderList_1_2" style="margin-top: 20px">
-                                <img src=" /image/sad.jpeg" alt="" class="orderList_img">
+                                <img th:src="${history.historyImage}" alt="" class="orderList_img">
                                 <div class="orderList_1_2_1">
                                     <dl>
-                                        <dd>쇼핑몰 로고, 브랜딩, 상세페이지 제작</dd>
-                                        <dd><strong>35,000원</strong></dd>
+                                        <dd th:text="${history.historyName}"></dd>
+                                        <dd th:text="${history.historyPrice}"><strong></strong></dd>
                                         <div class="between">
                                             <button class="orderlist_091001">문의하기</button>
                                         </div>
@@ -94,10 +99,11 @@
                             </div>
                         </div>
                         <div class="orderlist_101437">
-                            <img src="/image/user.png" alt="" class="orderlist_091739"><br><br>
-                            <span style="font-weight: bold">옥수수수염차</span><br><br>
+                            <img th:src="${history.historyMemberprofile}" alt="" class="orderlist_091739"><br><br>
+                            <span th:text="${history.historyMember}" style="font-weight: bold"></span><br><br>
                             <a href="#"><span>>문의하기</span></a>
                         </div>
+                        </tr>
                     </div>
                 </div>
                 <div id="content2" class="tab-content blue">

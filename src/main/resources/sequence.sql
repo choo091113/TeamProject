@@ -6,6 +6,8 @@ Create sequence  notice_sequence Start with 1 increment by 1;
 
 Create sequence  reply_sequence Start with 1 increment by 1;
 
+Create sequence history_sequence Start with 1 increment by 1;
+
 ALTER TABLE ITEM_TABLE,
 ADD CONSTRAINT FK_ITEM_TABLE_MEMBER_TABLE,
 FOREIGN KEY(id),

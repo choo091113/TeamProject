@@ -47,10 +47,6 @@ public class ThymeleafController {
         return "layout/seller_myService.html";
     }
 
-    @GetMapping(value = "/seller_orderList")
-    public String seller_orderList() {
-        return "layout/seller_orderList.html";
-    }
 
     @GetMapping(value = "/seller_revenue")
     public String seller_revenue() {

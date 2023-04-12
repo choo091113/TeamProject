@@ -1,10 +1,12 @@
 package com.example.controller;
 
+import com.example.dto.HistoryDTO;
 import com.example.dto.ItemDTO;
 import com.example.dto.MemberDTO;
 import com.example.dto.ReplyDTO;
 import com.example.entity.ItemEntity;
 import com.example.repository.ItemRepository;
+import com.example.service.HistoryService;
 import com.example.service.ItemService;
 import com.example.service.ReplyService;
 import lombok.RequiredArgsConstructor;
@@ -23,6 +25,7 @@ public class ItemController {
     public final ItemService itemService;
 public final ReplyService replyService;
 
+public final HistoryService historyService;
     // 상품등록 페이지 출력 요청
 //    @GetMapping("/itemForm")
 //    public String saveitem() {
@@ -94,6 +97,11 @@ public final ReplyService replyService;
         ItemDTO itemDTO = itemService.findById(id);
         model.addAttribute("item", itemDTO);
         return "layout/order2";
+    }
+    @PostMapping("/order2/{id}")
+    public String posthistory(@ModelAttribute HistoryDTO historyDTO) {
+        historyService.savehistory(historyDTO);
+        return "redirect:/Main";
     }
 
     @GetMapping("/Slist")
