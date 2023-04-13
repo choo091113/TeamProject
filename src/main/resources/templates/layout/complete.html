@@ -40,23 +40,22 @@
   </header>
 
   <main class="px-3">
-    <h1>(회원 이름)님!</h1>
+    <h1 id="name" th:text="${name} +' 님!'"></h1>
     <h1>추몽 가입을 환영합니다.</h1>
 
     <div class="row justify-content-center ">
-      <img src="/static/image/10.png" height="200"
+      <img src="https://github.com/choo091113/TeamProject/blob/master/src/main/resources/static/image/cHOO%20MONG.png?raw=true" height="200"
            class=" col-auto py-2 class mx-auto" />
     </div>
     <p class="lead">10만원 쿠폰팩이 발급되었습니다.</p>
     <p class="lead">지금 바로 사용해보세요!</p>
-    <ul>
-      <li><a href="instructor">크몽 구매 꿀팁 보러가기 ></a></li>
-    </ul>
+    <a href="instructor">추몽 구매 꿀팁 보러가기 ></a>
     <p class="lead">
       <button type="button" class="btn btn-outline-primary  px-5 m-3"
               onclick="location.href='Main'">원래 페이지로 돌아가기</button>
     </p>
   </main>
+
 
   <footer class="mt-auto text-white-50">
     <p>

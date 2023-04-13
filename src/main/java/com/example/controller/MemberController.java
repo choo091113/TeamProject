@@ -45,9 +45,9 @@ public class MemberController {
     }
 
     @PostMapping("/signCli")
-    public String save(@ModelAttribute MemberDTO memberDTO) {
+    public String save(@ModelAttribute MemberDTO memberDTO, Model model) {
         System.out.println("MemberDTO = " + memberDTO);
-        System.out.println("memberDTO = " + memberDTO);
+        model.addAttribute("name", memberDTO.getMemberName());
         memberService.save(memberDTO);
         return "layout/complete.html";
     }
