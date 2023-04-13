@@ -68,7 +68,7 @@ public class MemberEntity {
 
     public void setMemberProfile(String memberProfile) {
         if (memberProfile == null) {
-            this.memberProfile = "https://mblogthumb-phinf.pstatic.net/20150427_261/ninevincent_1430122791768m7oO1_JPEG/kakao_1.jpg?type=w2'";
+            this.memberProfile = "https://github.com/choo091113/TeamProject/blob/master/src/main/resources/static/image/kakao_1.jpg?raw=true";
         } else {
             this.memberProfile = memberProfile;
         }

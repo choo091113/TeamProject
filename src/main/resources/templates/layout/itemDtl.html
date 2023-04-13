@@ -60,7 +60,7 @@
 						<hr/>
 					</div>
 
-					<h3><span class="name" th:text = "'판매자 : ' + ${item.itemSeller}"></span></h3>
+					<h3><span class="name" th:text = "'전문가 : ' + ${item.itemSeller}"></span></h3>
 				</form>
 
 
@@ -75,7 +75,7 @@
 	</div>
 
 	<h2>서비스 리뷰</h2>
-	<div th:if="${#session} == null">
+	<div th:if="${#session} != null">
 	<form action ="itemDtl" method = "post">
 		<div class="itemform_211316">
 			<span class="keytitle">리뷰 작성</span>
